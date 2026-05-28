@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+</head>
+
+<body>
+
+    <!--ヘッダー-->
+    <header>
+    </header>
+    <!--/ヘッダー-->
+
+    <!--wrapper-->
+    <div id="wrapper">
+        <h2>新規会員の登録</h2>
+        <form id="user_form">
+            <dl>
+                <dt>メールアドレス <span class="must">※</span></dt>
+                <dd><input type="email" name="email" id="email" required></dd>
+                <dt>メールアドレス(確認用) <span class="must">※</span></dt>
+                <dd><input type="email" name="confirmation_mail" id="confirmation_mail" required></dd>
+                <dt>性別</dt>
+                <dd>
+                    <label><input type="radio" name="questionnaire" id="questionnaire1" value="男性">男性</label>
+                    <label><input type="radio" name="questionnaire" id="questionnaire2" value="女性">女性</label>
+                    <label><input type="radio" name="questionnaire" id="questionnaire3" value="その他">その他</label>
+                </dd>
+                <dt>生年月日</dt>
+                <dd>
+                    <select name="year" id="year">
+                        <option value="2000">2000</option>
+                        <option value="2001">2001</option>
+                        <option value="2002">2002</option>
+                        <option value="2003">2003</option>
+                        <option value="2004">2004</option>
+                        <option value="2005">2005</option>
+                        <option value="2006">2006</option>
+                        <option value="2007">2007</option>
+                        <option value="2008">2008</option>
+                        <option value="2009">2009</option>
+                        <option value="2010">2010</option>
+                    </select>年
+                    <select name="mouth" id="mouth">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>月
+                    <select name="day" id="day">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                    </select>日
+                </dd>
+                <dt>メールマガジン</dt>
+                <dd>
+                    <label><input type="checkbox" name="category" id="category" value="登録">登録</label>
+                </dd>
+                <dt>パスワード <span class="must">※</span></dt>
+                <dd><input type="password" name="password" id="password" required></dd>
+                <dt>パスワード(確認用) <span class="must">※</span></dt>
+                <dd><input type="password" name="confirmation_password" id="confirmation_password" required></dd>
+                <dt>備考</dt>
+                <dd>
+                    <textarea name="detail" id="detail"></textarea>
+                </dd>
+            </dl>
+            <p id="submit_button_cover">
+                <input type="submit" id="submit_button" value="送信する">
+            </p>
+        </form>
+    </div>
+    <!--/wrapper-->
+
+    <!--フッター-->
+    <footer>
+    </footer>
+    <!--/フッター-->
+
+</body>
+
+</html>

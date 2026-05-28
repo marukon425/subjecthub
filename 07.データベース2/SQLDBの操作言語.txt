@@ -1,0 +1,23 @@
+SQL:DBの操作言語
+大きく2つに分かれる
+①DDL:定義(作る)
+・CREATE:データベースやテーブルを作る
+②DML:操作
+・SELECT:データの抽出
+・INSERT:データの追加(挿入)
+・DELETE:データの削除
+・UPDATE:データの更新
+
+
+カラムの抽出
+select カラム名 from テーブル名
+条件抽出
+select カラム名 from テーブル名 weher 条件のカラム <>= 条件の数値or名前
+データの追加
+inset into テーブル名 values ('文字値列' or 数値)
+データの更新
+update テーブル名 set 更新内容 = 更新する値
+レコードの削除
+delete from テーブル名 削除するレコードの条件式
+asによる別名の出力
+select カラム名 as 正式名称 as 別名 from テーブル as 別名 weher カラム名 = '値'

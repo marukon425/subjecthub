@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* 基本要素 */
+body {
+  ＿＿（1）＿＿
+  ＿＿（2）＿＿
+  color: ＿＿（3）＿＿;
+}
+a { color: #b7a077; }
+a:visited { color: #a8a8a8; }
+a:hover {
+  color: #988564;
+  font-weight: ＿＿（4）＿＿;
+  text-decoration: none;
+}
+a:hover img { opacity: ＿＿（5）＿＿; }
+h1, h2, h3, h4, h5, h6 { margin-top: 0; }
+p {
+  margin-top: 0;
+  line-height: 1.6;
+}

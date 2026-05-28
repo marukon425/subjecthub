@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!--lang：日本語(ja)や英語(en)-->
+<html lang="ja">
+    <!--headは設定情報など-->
+    <head>
+        <!--charsetは文字コードの設定(UTFはユニコード)-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>お問い合わせ|フラワーアレンジメント教室 BLOOM</title>
+    </head>
+
+
+    <!--bodyはページの中身-->
+    <body>
+        <!--heder開始-->
+        <header>
+            <h1><a href="index.html"><img src="images/logo.png" alt=""></a></h1>
+            <!--↓お問い合わせを下に持っていきたいからdivでグループ化した↓--> 
+            <div id="header_comtact"><a href="contact.html"><img src="images/btn_contact.jpg" alt=""></a></div>
+            
+                    <!--ナビゲーション　リスト(ul)で作成-->
+            <nav id="global_nav">
+                <ul>
+                    <li class="current"><a href="index.html">HOME</a></li>
+                    <li><a href="course.html">講座案内</a></li>
+                    <li><a href="gallaery.html">ギャラリー</a></li>
+                    <li><a href="access.html">アクセス</a></li>
+                    <li class="current"><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!--/ヘッダー-->
+        
+        
+        <div id="wrapper"><!--wrapper(包む)ページの中間層-->
+            <!--メイン-->
+            <div id="main">
+                
+                <!-- パンくずリスト -->
+                <div id="breadcrumb">
+                    <ol>
+                        <li><a href="index.html">HOME</a></li>
+                        <li>お問い合わせ</li>
+                    </ol>
+                </div>
+                <!-- /パンくずリスト -->
+                
+                <!-- 各種コンテンツ -->
+                <article>
+                    <h1>お問い合わせ</h1>
+                    <p>お気軽にお問い合わせください</p>
+                    <p>下記メールフォームをご記入いただき、「送信する」ボタンを押してください。</p>
+                    <p>「※」は必須項目です</p>
+                    <!--form:データを別ページに送る場合-->
+                    <form id="entry" action="">
+                        <dl>
+                            <dt>お名前<span class="must">※</span></dt><!--見出し(タイトル)-->
+                            <dd><input type="text" name="name" id="name"></dd><!--内容--><!--input:文字を打つ欄-->
+
+                            <dt>メールアドレス<span class="must">※</span></dt><!--見出し(タイトル)-->
+                            <dd><input type="email" name="email" id="email"></dd>
+
+                            <dt>興味がある講座</dt>
+                            <dd>
+                                <select name="interest" id="interest">
+                                    <option value="1Day体験教室">1Day体験教室</option>
+                                    <option value="ブライダル・アートフラワー教室">ブライダル・アートフラワー教室</option>
+                                    <option value="資格取得講座">資格取得講座</option>
+                                    
+                                </select>
+                            </dd><!--select:ドロップダウンの選択方式-->
+
+                            <dt>お問い合わせ種別</dt>
+                            <dd>
+                                <label for=""><input type="checkbox">講座申し込み</label>
+                                <label for=""><input type="checkbox">資料請求</label>
+                                <label for=""><input type="checkbox">その他お問い合わせ</label>
+                            </dd>
+
+                            <dt>Bloomを知ったきっかけ</dt>
+                            <label><input type="radio">口コミ</label>
+                            <label><input type="radio">検索エンジンから</label>
+                            <label><input type="radio">その他</label>
+
+                            <dt>お問い合わせ内容</dt>
+                            <dd><textarea id="detail"></textarea></dd>
+                        </dl>
+                        <!--送信ボタン-->
+                        <p id="submit_button_cover">
+                            <input type="submit" value="送信する">
+                        </p>
+                    </form>
+                    <section>
+                    <h2>お問い合わせフォーム</h>
+                    </section>
+                </article>
+                <!-- /各種コンテンツ -->
+            </div>
+            <!-- /メイン -->
+            
+            <!--サイド-->
+            <aside id="sidebar">
+                <section id="side_banner">
+                    <h2>関連リンク</h2>
+                    <ul>
+                        <li><a href="#"><img src="images/banner01.jpg" alt="ブルームブログ"></a></li>
+                        <li><a href="#"><img src="images/banner02.jpg" alt="いいね押してね！"></a></li>
+                    </ul>
+                </section>
+                <section id="side_contact">
+                    <h2>ご予約・お問い合わせ</h2>
+                    <address><img src="images/mark_tel.png" alt="TEL">052-232-8229</address>
+                    <p>受付時間 9:00～18:00</p>
+                    <p><a href="contact.html">お問い合わせフォーム</a></p>
+                </section>
+            </aside>
+        </div>
+        <!-- /wrapper -->
+        
+        <!--フッターの開始-->
+        <footer>
+            <div id="footer_nav">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="course.html">講座案内</a></li>
+                    <li><a href="gallery.html">ギャラリー</a></li>
+                    <li><a href="access.html">アクセス</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                    <li><a href="policy.html">プライバシーポリシー</a></li>
+                </ul>
+            </div>
+            <small>&copy; 2015 Bloom.</small>
+        </footer>
+        <!--フッターの終了-->
+        <!--body ページの中身-->
+    </body>
+</html>

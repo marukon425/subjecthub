@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--lang：日本語(ja)や英語(en)-->
+<html lang="ja">
+    <!--headは設定情報など-->
+    <head>
+        <!--charsetは文字コードの設定(UTFはユニコード)-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>フラワーアレンジメント教室 BLOOM</title>
+    </head>
+
+
+    <!--bodyはページの中身-->
+    <body>
+        <!--heder開始-->
+        <header>
+            <h1><a href="index.html"><img src="images/logo.png" alt=""></a></h1>
+            <!--↓お問い合わせを下に持っていきたいからdivでグループ化した↓--> 
+            <div id="header_comtact"><a href="contact.html"><img src="images/btn_contact.jpg" alt=""></a></div>
+            
+                    <!--ナビゲーション　リスト(ul)で作成-->
+            <nav id="global_nav">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li class="current"><a href="course.html">講座案内</a></li>
+                    <li><a href="gallaery.html">ギャラリー</a></li>
+                    <li><a href="access.html">アクセス</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!--/ヘッダー-->
+        
+        
+        <div id="wrapper"><!--wrapper(包む)ページの中間層-->
+            <!--メイン-->
+            <div id="main">
+                
+                <!-- パンくずリスト -->
+                <div id="breadcrumb">
+                    <ol>
+                        <li><a href="index.html">HOME</a></li>
+                        <li>講座案内</li>
+                    </ol>
+                </div>
+                <!-- /パンくずリスト -->
+                
+                <!-- 各種コンテンツ -->
+                
+                <!-- /各種コンテンツ -->
+                <article>
+                    <h1>講座案内</h1>
+                    <p>用途に合わせた・・・</p>
+                    <p>初心者の方を・・・</p>
+                    <section>
+                        <h2>各講座のご案内</h2>
+                        <section>
+                            <h3>1Day体験教室</h3>
+                            <p>参加を検討・・・</p>
+                            <!-- 表（テーブル）を作成 -->
+                            <!--表：table 1行目：tr １項目：th(見出し)・tb(データ)-->
+                            <table><!--表-->
+                                <tr><!--1行・1件-->
+                                    <th>定員</th><!--見出し-->
+                                    <td>10名</td><!--データ-->
+                                </tr>
+                                <tr><!--1行・1件-->
+                                    <th>価格</th><!--見出し-->
+                                    <td>一人2000円</td><!--データ-->
+                                </tr>
+                                <tr><!--1行・1件-->
+                                    <th>持ち物</th><!--見出し-->
+                                    <td>道具はすべて用意します。</td><!--データ-->
+                                </tr>
+                            </table>
+                        </section>
+
+                        <section>
+                            <h3>ブライダルコース</h3>
+                            <p>本格的に・・・</p>
+                            <table><!--表-->
+                                <tr><!--1行・1件-->
+                                    <th>日時</th><!--見出し-->
+                                    <td>月・水・金・土・日</td><!--データ-->
+                                </tr>
+                                <tr><!--1行・1件-->
+                                    <th>価格</th><!--見出し-->
+                                    <td>入会金5,000円 月（4回）8,000円</td><!--データ-->
+                                </tr>
+                                <tr><!--1行・1件-->
+                                    <th>持ち物</th><!--見出し-->
+                                    <td>用意した教材に追加を希望する方は別途費用となります。</td><!--データ-->
+                                </tr>
+                            </table>
+                            <!-- 表（テーブル）を作成 -->
+                        </section>
+
+                        <section>
+                            <h3>資格取得コース</h3>
+                            <p>公益社団・・・</p>
+                            <table><!--表-->
+                                <tr><!--1行・1件-->
+                                    <th>日時</th><!--見出し-->
+                                    <td>金・土・日</td><!--データ-->
+                                </tr>
+                                <tr><!--1行・1件-->
+                                    <th>価格</th><!--見出し-->
+                                    <td>月（4回）8,000円</td><!--データ-->
+                                </tr>
+                                <tr><!--1行・1件-->
+                                    <th>持ち物</th><!--見出し-->
+                                    <td>用意した教材に追加を希望する方は別途費用となります。</td><!--データ-->
+                                </tr>
+                            </table>
+                            <!-- 表（テーブル）を作成 -->
+                        </section>
+                    </section>
+                </article>
+            </div>
+            <!-- /メイン -->
+            
+            <!--サイド-->
+            <aside id="sidebar">
+                <section id="side_banner">
+                    <h2>関連リンク</h2>
+                    <ul>
+                        <li><a href="#"><img src="images/banner01.jpg" alt="ブルームブログ"></a></li>
+                        <li><a href="#"><img src="images/banner02.jpg" alt="いいね押してね！"></a></li>
+                    </ul>
+                </section>
+                <section id="side_contact">
+                    <h2>ご予約・お問い合わせ</h2>
+                    <address><img src="images/mark_tel.png" alt="TEL">052-232-8229</address>
+                    <p>受付時間 9:00～18:00</p>
+                    <p><a href="contact.html">お問い合わせフォーム</a></p>
+                </section>
+            </aside>
+        </div>
+        <!-- /wrapper -->
+        
+        <!--フッターの開始-->
+        <footer>
+            <div id="footer_nav">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="course.html">講座案内</a></li>
+                    <li><a href="gallery.html">ギャラリー</a></li>
+                    <li><a href="access.html">アクセス</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                    <li><a href="policy.html">プライバシーポリシー</a></li>
+                </ul>
+            </div>
+            <small>&copy; 2015 Bloom.</small>
+        </footer>
+        <!--フッターの終了-->
+        <!--body ページの中身-->
+    </body>
+</html>

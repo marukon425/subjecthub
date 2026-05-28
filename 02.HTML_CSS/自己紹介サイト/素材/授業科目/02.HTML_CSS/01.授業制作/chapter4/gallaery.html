@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--lang：日本語(ja)や英語(en)-->
+<html lang="ja">
+    <!--headは設定情報など-->
+    <head>
+        <!--charsetは文字コードの設定(UTFはユニコード)-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ギャラリー|フラワーアレンジメント教室 BLOOM</title>
+    </head>
+
+
+    <!--bodyはページの中身-->
+    <body>
+        <!--heder開始-->
+        <header>
+            <h1><a href="index.html"><img src="images/logo.png" alt=""></a></h1>
+            <!--↓お問い合わせを下に持っていきたいからdivでグループ化した↓--> 
+            <div id="header_comtact"><a href="contact.html"><img src="images/btn_contact.jpg" alt=""></a></div>
+            
+                    <!--ナビゲーション　リスト(ul)で作成-->
+            <nav id="global_nav">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="course.html">講座案内</a></li>
+                    <li class="current"><a href="gallaery.html">ギャラリー</a></li>
+                    <li><a href="access.html">アクセス</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!--/ヘッダー-->
+        
+        
+        <div id="wrapper"><!--wrapper(包む)ページの中間層-->
+            <!--メイン-->
+            <div id="main">
+                
+                <!-- パンくずリスト -->
+                <div id="breadcrumb">
+                    <ol>
+                        <li><a href="index.html">HOME</a></li>
+                        <li>ギャラリー</li>
+                    </ol>
+                </div>
+                <!-- /パンくずリスト -->
+                
+                <!-- 各種コンテンツ -->
+                <article>
+                    <h1>ギャラリー</h1>
+                    <p>実際に通われている</p>
+                    <p>自宅を華やかに</p>
+                    <section id="gallaery">
+                    <h2>生徒さんの作品</h2>
+                    <ul>
+                        <li><img src="images/item01.jpg" alt=""><br>見本作品 </li>
+                        <li><img src="images/item02.jpg" alt=""><br>見本作品 Aさん</A></li>
+                        <li><img src="images/item03.jpg" alt=""><br>見本作品 Bさん</li>
+                        <li><img src="images/item04.jpg" alt=""><br>見本作品 Cさん</li>
+                        <li><img src="images/item05.jpg" alt=""><br>見本作品 Dさん</li>
+                        <li><img src="images/item06.jpg" alt=""><br>見本作品 Eさん</li>
+                        <li><img src="images/item06.jpg" alt=""><br>見本作品 Fさん</li>
+                        <li><img src="images/item07.jpg" alt=""><br>見本作品 Gさん</li>
+                        <li><img src="images/item08.jpg" alt=""><br>見本作品 Hさん</li>
+                        <li><img src="images/item09.jpg" alt=""><br>見本作品 Iさん</li>
+                    </ul>
+                    </section>
+                </article>
+                <!-- /各種コンテンツ -->
+            </div>
+            <!-- /メイン -->
+            
+            <!--サイドバー-->
+            <aside id="sidebar">
+                <section id="side_banner">
+                    <h2>関連リンク</h2>
+                    <ul>
+                        <li><a href="#"><img src="images/banner01.jpg" alt="ブルームブログ"></a></li>
+                        <li><a href="#"><img src="images/banner02.jpg" alt="いいね押してね！"></a></li>
+                    </ul>
+                </section>
+                <section id="side_contact">
+                    <h2>ご予約・お問い合わせ</h2>
+                    <address><img src="images/mark_tel.png" alt="TEL">052-232-8229</address>
+                    <p>受付時間 9:00～18:00</p>
+                    <p><a href="contact.html">お問い合わせフォーム</a></p>
+                </section>
+            </aside>
+        </div>
+        <!-- /wrapper -->
+        
+        <!--フッターの開始-->
+        <footer>
+            <div id="footer_nav">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="course.html">講座案内</a></li>
+                    <li><a href="gallery.html">ギャラリー</a></li>
+                    <li><a href="access.html">アクセス</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                    <li><a href="policy.html">プライバシーポリシー</a></li>
+                </ul>
+            </div>
+            <small>&copy; 2015 Bloom.</small>
+        </footer>
+        <!--フッターの終了-->
+        <!--body ページの中身-->
+    </body>
+</html>

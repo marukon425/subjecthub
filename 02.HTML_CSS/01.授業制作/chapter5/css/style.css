@@ -1,0 +1,313 @@
+/* 文字セット(charset) */
+@charset"utf-8";
+
+/* ページ全体のデザイン 隙間がない状態　*/
+body{
+    /* 要素の外側の余白 */
+    margin: 0;
+    /* 要素の内側の余白 */
+    margin: 0;
+    /* ページ全体の文字色を統一 */
+    color: #333;
+}
+
+/* リンクタグのデザイン */
+a{
+    color: #b7a077;
+}
+
+/* リンクタグのカーソルを置いたとき */
+a:hover{
+    color: #988564;
+    font-weight:bold;
+    text-decoration: none;
+}
+
+/* 画像タグのカーソルと置いたとき */
+a:hover img{
+    opacity: 0.7;/* 半透明 */
+}
+
+/* 各見出し（ｈ〇）のデザイン　※複数同時設定 */
+h1, h2, h3, h4, h5, h6{
+    /* 要素の上の余白 */
+    margin-top: 0;
+}
+
+/* 段落タグのデザイン */
+p{
+    margin-top: 0;
+    line-height: 1.6; /* 行間の設定 */
+}
+
+/* 画像タグのデザイン */
+img{
+    vertical-align: bottom;
+}
+
+/* IDmainのh1タグのデザイン */
+#main h1{
+    /* 背景に画像を使用 */
+    background-image: url(../images/header_bg.jpg);
+    /* 枠はborder-どこ */
+    border-bottom: solid 3px #8b7348;
+    padding: 13px 30px 10px 20px;
+    font-size: 26px;
+}
+
+/* IDmainのh2タグのデザイン */
+#main h2{
+    font-size: 22px;
+    border: solid 1px #b7a077;
+    border-radius: 5px; /*　枠を丸く */
+    /* 文字と枠の間の余白（要素の中の余白）上下・左右 */
+    padding: 11px 22px;
+}
+
+/* IDmainのh3タグのデザイン */
+#main h3{
+    font-size: 18px;
+    border-left: solid 3px #b7a077;
+    padding: 4px 9px 4px 14px;
+}
+
+/* ヘッダー全体のデザイン */
+header{
+    /* 横幅を決める */
+    width: 980px;
+    /* 中央に寄せる（左右の余白を自動）上下０・左右　自動 */
+    margin: 0 auto;
+}
+
+/*　二つのロゴのデザイン（左右） */
+
+header h1{
+    /* 浮かせて左 */
+    float: left;
+}
+
+header #header_contact{
+    /* 浮かせて右 */
+    float: right;
+}
+
+/*　グローバルナビゲーションのデザイン */
+#global_navi{
+    /* 幅を統一 */
+    width: 980px;/* 幅を統一 */
+    margin: 16px auto;/* 下２行：回り込む現象を解除 */
+
+    /* 下二行：回り込む現象を解除 */
+    clear: both;
+    overflow: hidden;
+}
+
+#global_navi ul li {
+    width: 195px;
+    float: left;
+    margin-right: 1px;
+    text-align: center;
+}
+
+/* グローバルナビゲーションを横並びに */
+#global_navi ul li a {
+    display: block;
+    padding: 16px;
+    background-color: #352b23;
+    color: #fff;
+    text-decoration: none;
+}
+
+#global_navi ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper{
+    width: 980px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+#main{
+    width: 730px;
+    float: left;
+}
+
+#sidebar{
+    width: 220px;
+    float: right;
+}
+
+#side_banner h2{
+    background-color: #988564;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+}
+
+#side_contact h2{
+    background-color: #988564;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* 関連リンクの箇条書きの●を削除 */
+#side_banner ul {
+    list-style: none;
+
+    /* 要素の中「外」「中」の余白を0 */
+    margin: 0px;
+    padding: 0px;
+}
+
+/* 関連リンクの各画像の下に余白を設定　10px */
+#side_banner ul li{
+    margin-bottom: 10px;
+}
+
+/* ご予約・お問い合わせの設定 */
+#side_contact{
+    /* 枠線と枠線の色 */
+    border: 1px solid #8b7348;
+
+    /* 文字の色 */
+    color: #8b7348;
+    /* 文字を中央に寄せる */
+    text-align: center;
+}
+
+/* お問い合わせフォーム(ボタン)
+    背景色：自由
+    枠：自由
+    中の余白：10px　　　↓↓↓　*/
+#side_contact .contact_button {
+    background-color: rgba(0, 255, 255, 0.368);
+    border-color: blanchedalmond;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* フッターの設定 */
+footer{
+    background-color: black;
+    text-align: center;
+}
+
+/* footer_navの背景色設定 */
+#footer_nav{
+    background-color: #efefef;
+    padding: 10px 0;
+}
+
+/* フッターの行頭アイコン削除 */
+footer #footer_nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* フッターリストを横並びにする */
+footer #footer_nav ul li{
+    display: inline;
+    border-left: solid 1px #aaa;
+    margin-left: 8px;
+    padding-left: 8px;
+    font-size: smaller;
+
+}
+
+/* 最後の項目に右のボーダーをつける */
+footer #footer_nav li:last-child{
+    border-right: solid 1px #aaa;
+    padding: 0 8px;
+}
+
+footer small{
+    display: block;
+    padding: 8px 0;
+    color:  #fff;
+}
+
+/* パンくずリストの文字を小さくする */
+#breadcrumb{
+    font-size: smaller;
+}
+
+/* 行頭の数字を消す */
+#breadcrumb ol{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* 横並びにする */
+#breadcrumb ol li{
+    display: inline;
+}
+
+/* 階層を示す「＞」をつける */
+#breadcrumb ol li::after{
+    content: ">";
+    padding-left: 7px;
+}
+
+/* ブルームのこだわり　のデザイン */
+/* 回り込みをさせる */
+#point section{
+    overflow: hidden;
+}
+/* 「写真と文字(figure)の文書を右へ」 */
+#point figure{
+    float: right;
+}
+/* 画像下の文章　文字サイズ12　文字中央　色自由 */
+#point figure figcaption{
+    font-size: 12px;
+    text-align: center;
+    color: #8b7348;
+}
+
+/* 講座案内のテーブルのデザイン */
+/* テーブル全体の幅を100% 下の余白16px*/
+#course table{
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+/* 見出し(th)・データ(td) 枠　中の余白8px */
+#course th, #course td{
+    border: 1px solid burlywood;/* 枠 */
+    padding: 8px;/* 要素の中の余白 */
+}
+
+/* 見出し　背景色・もじ位置左 */
+#course th{
+    background-color: #9d7c61;
+    text-align: left;
+}
+
+/* ギャラリーページのデザイン */
+/* リスト全体(ul)・なし　外余白0px　中余白0px */
+#gallaery ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* 各リスト(li) */
+#gallaery ul li{
+    /* デザイン */
+    width: 220px;/* 幅220px */
+    margin: 0px 30px 30px 0px;/* 外の余白　上0　右30　下30　左0 */
+    padding: 10px 0px;/* 中余白　上下10　左右0 */
+    border: 1px solid rgb(235, 148, 148);/* 枠　太さ1　種類：solid 色：自由 */
+    color: chocolate;/* 文字色 */
+    text-align: center;/* 文字位置　中央 */
+    font-weight: bold;/* 文字の種類　太文字 */
+    float: left;/* 浮かせて左 */
+    margin-right: 15px;
+}

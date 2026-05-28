@@ -1,0 +1,1 @@
+print('合計数:',sum([i for i in range(int(input('開始数:')), int(input('終了数:'))+1)]))

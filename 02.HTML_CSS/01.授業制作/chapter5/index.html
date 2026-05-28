@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<!-- lang：日本語(ja)や英語(en) -->
+<html lang="ja">
+    <!-- head：設定など -->
+    <head>
+        <!-- charset：文字コードの設定（UTF-8はユニコード） -->
+        <meta charset="UTF-8">
+        <title>フラワーアレンジメント教室_Bloom</title>
+
+                        <!-- ↓ cssとリンク(繋げる) ↓ -->
+                        <link rel="stylesheet" href="css/style.css">
+                        
+    </head>
+
+    <!-- body：Webページの中身 -->
+    <body>
+        <!-- ヘッダー ページの上部 -->
+        <header>
+            <!-- 画像２つ -->
+            <h1><a href="index.html"><img src="images/logo.png" alt=""></a></h1>
+            <div id="header_contact"><a href="contact.html"><img src="images/btn_contact.jpg" alt=""></a></div>
+        
+            <!-- ナビゲーション リストで作成 -->
+            <nav id="global_navi">
+                <ul>
+                    <li class="current"><a href="index.html">HOME</a></li>
+                    <li><a href="course.html">講座案内</a></li>
+                    <li><a href="gallery.html">ギャラリー</a></li>
+                    <li><a href="access.html">アクセス</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- /ヘッダー -->
+
+        <!-- wrapper （包む）ページの中部 -->
+        <div id="wrapper"> <!-- グループを作る：div --> <!-- 名前を付ける：id -->
+            <!-- メインビジュアル画像 -->
+            <div id="main_visual">
+                <p><img src="images/main_visual.jpg"></p>
+            </div>
+            <!-- /メインビジュアル画像 -->
+
+            <!-- メイン -->
+            <div id="main">
+                <!-- ブルームのこだわり -->
+                <section id="point">
+                    <h2>ブルームのこだわり</h2>
+                    <!-- こだわり１ -->
+                    <section>
+                        <h3>季節の花や旬の技術を楽しく</h3>
+                        <figure><!-- figure：画像と画像の説明をセット -->
+                            <img src="images/photo01.jpg">
+                            <figcaption>作品を作る生徒さんの様子</figcaption>
+                        </figure>
+                        <p>
+                            生徒さんの数だけ・・・<br> <!-- br：改行 -->
+                            一人ひとりに向き合った・・・<br>
+                            全くの初心者の方も・・・
+                        </p>
+                    </section>
+
+                    <!-- こだわり２ -->
+                    <section>
+                        <h3>季節の花や旬の技術を楽しく</h3>
+                        <figure><!-- figure：画像と画像の説明をセット -->
+                            <img src="images/photo02.jpg">
+                            <figcaption>完成間近の作品</figcaption>
+                        </figure>
+                        <p>
+                            季節の美しい・・・<br> <!-- br：改行 -->
+                            また、旬の話題は・・・
+                        </p>
+                    </section>
+                    
+                </section>
+
+                <!-- お知らせ -->
+                <section id="news">
+                    <h2>お知らせ</h2>
+                    <!-- dt：ある項目(日付) dd：その説明(内容) dl：dtとddを囲む-->
+                    <dl>
+                        <dt>2016/03/21</dt>
+                        <dd>講座案内を更新しました</dd>
+
+                        <dt>2016/02/11</dt>
+                        <dd>ギャラリーを更新しました</dd>
+
+                        <dt>2016/01/08</dt>
+                        <dd>アクセスを更新しました</dd>
+                    </dl>
+                </section>
+
+            </div>
+            <!-- /メイン-->
+
+            <!-- サイドバー -->
+            <aside id="sidebar">
+                <!-- 関連リンク -->
+                <section id="side_banner">
+                    <h2>関連リンク</h2>
+                    <!-- 画像が２つ -->
+                    <ul>
+                        <li><a href="#"><img src="images/banner01.jpg" alt=""></a></li>
+                        <li><a href="#"><img src="images/banner02.jpg" alt=""></a></li>
+                    </ul>
+                </section>
+                
+                <!-- ご予約・お問い合わせ -->
+                <section id="side_contact">
+                    <h2>ご予約・お問い合わせ</h2>
+                    <address><img src="images/mark_tel.png">052-232-8229</address>
+                    <p>受付時間 9:00～18:00</p>
+                    <!-- class：名前を付けるオプション
+                    （IDと同じ、IDはページで1箇所、classはページで複数箇所） -->
+                    <p><a href="contact.html" class="contact_button">お問い合わせフォーム</a></p>
+                </section>
+
+            </aside>
+            <!-- /サイドバー-->
+        </div>
+        <!-- /wrapper -->
+
+        <!-- フッター ページの下部-->
+        <footer>
+            <!-- ナビゲーション -->
+            <div id="footer_nav">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="course.html">講座案内</a></li>
+                    <li><a href="gallery.html">ギャラリー</a></li>
+                    <li><a href="access.html">アクセス</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                    <li><a href="policy.html">プライバシーポリシー</a></li>
+                </ul>
+            </div>
+
+            <!-- コピーライト（著作権関連） -->
+            <!-- small：小さく（意味を弱める、注釈）-->
+            <small>&copy; 2015 Bloom.</small>
+        </footer>
+        <!-- /フッター -->
+
+    </body>
+</html>

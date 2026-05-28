@@ -1,0 +1,80 @@
+@charset "utf-8";
+/* 基本要素 */
+body {
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+a { color: #b7a077; }
+a:visited { color: #a8a8a8; }
+a:hover {
+  color: #988564;
+  font-weight: bold;
+  text-decoration: none;
+}
+a:hover img { opacity: 0.7; }
+h1, h2, h3, h4, h5, h6 { margin-top: 0; }
+p {
+  margin-top: 0;
+  line-height: 1.6;
+}
+#main h1 {
+  background-image: url(../images/header_bg.jpg);
+  padding: 13px 30px 10px 20px;
+  font-size: 26px;
+  color: #44382d;
+  border-bottom: solid 3px #716961;
+}
+#main h2 {
+  font-size: 22px;
+  border: 1px solid #b7a077;
+  padding: 11px 22px;
+  border-radius: 5px;
+}
+#main h3 {
+  font-size: 18px;
+  border-left: solid 3px #b7a077;
+  padding: 4px 9px 4px 14px;
+}
+header {
+  width: 980px;
+  margin: 0 auto;
+}
+header h1 {
+  float: left;
+  margin: 5px 0 10px;
+}
+header #header_contact {
+  float: right;
+  margin: 35px 0;
+}
+#global_navi {
+  width: 980px;
+  clear: both;
+  overflow: hidden;
+  margin: 16px auto;
+}
+#global_navi ul {
+  list-style: none;
+  margin: ＿＿（1）＿＿;
+  padding: ＿＿（2）＿＿;
+}
+#global_navi ul li {
+  width: 195px;
+  float: left;
+  margin-right: ＿＿（3）＿＿;
+  text-align: ＿＿（4）＿＿;
+}
+#global_navi ul li a {
+  display: block;
+  padding: 16px;
+  background-color: #352b23;
+  color: #fff;
+  text-decoration: none;
+}
+#global_navi ul li.current a { 
+  background-color: #b7a077; 
+}
+#global_navi ul li ＿＿（5）＿＿ { 
+  background-color: #8c7a5b;
+}

@@ -1,0 +1,38 @@
+1.ipynbを新規作成する（ファイル名は　m03_自分の名前.ipynb　とする）。  → conda_python3のファイルを作成
+2.CSVファイルをipynbと同じフォルダに配置し、データフレームを作成する。 
+→ 参考 3-2問題.ipynb、3_3-machinelearning.ipynb（Labのファイル）
+3.行数、列数を表示する。  → 参考 3_2-machinelearning.ipynb
+4.列名を取得する。    → 参考 3_2-machinelearning.ipynb
+5.列のデータ型を取得する。   → 参考 3_2-machinelearning.ipynb
+6.データフレームの情報を表示する。  → 参考 3_3-machinelearning.ipynb
+7.全ての列の統計量を表示する。   → 参考 3_2-machinelearning.ipynb
+8.gender列のデータ毎の出現回数を表示する。   → 参考 3_2-machinelearning.ipynb
+9.gender列をMaleは0、Femaleは1に変換する。   → 参考 3_2-machinelearning.ipynb
+10.race列をワンホットエンコーディングする。  → 参考 3_3-machinelearning.ipynb
+11.特徴量として、以下の列を使う。→ 参考 3_3-machinelearning.ipynb
+　　＜* age＞＜* fnlwgt＞＜* educational-num＞
+　　＜* raceをワンホットエンコーディングした結果の列＞
+　　＜* genderをエンコーディングした結果の列＞
+　　　ヒント：# XGBoostの場合は先頭に目的変数(正解ラベル)、それ以降を特徴量とする
+　　　　　　　df_for_use = df[ ['income_>50K', 
+              　　　　　　　    'age', 'fnlwgt',
+                  　　　　　    'educational-num',
+　　　　　                      'race_Asian-Pac-Islander',
+          　　　　　            'race_Black',
+                  　　　　　    'race_Other',
+                  　　　　　    'race_White',
+                  　　　　　    'gender_encoded'] ].copy()
+12.データをトレーニング用、検証用、テスト用に分割する。→ 参考 3_4-machinelearning.ipynb
+　　＜トレーニング用：8割、検証用1割、テスト用：1割とする＞
+　　　※２回分割する　①トレーニング用と検証用/テスト用に分割（8:2） 
+　　　　　　　　　　　②検証用とテスト用に分割（5:5）
+13.XGBoostのモデルを作成する。 
+　　→ 参考 3_4-machinelearning.ipynb
+14.テスト用データの1行目を用いて、リアルタイム推論をする。  
+　　→ 参考 3_5-machinelearning.ipynb
+15.テスト用データでバッチ推論をする。  
+　　→ 参考 3_5-machinelearning.ipynb
+16.予測結果を二値変換する関数（閾値で0か1かに振り分ける）を作る。変換の閾値は0.65とする。  
+　　→ 参考 3_6-machinelearning.ipynb
+17.バッチ推論した結果を上記関数で二値変換し、結果を表示する。また、実際の正解値も表示し、比較できるようにする。
+　　→ 参考 3_7-machinelearning.ipynb

@@ -1,0 +1,4 @@
+a = 2
+b = 3
+print(f'{a} + {b} = {a+b}')
+print('{} + {} = {}'.format(a, b , a+b))

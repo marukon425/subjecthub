@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>お問い合わせ｜フラワーアレンジメント教室 Bloom</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Bloomへのご質問やお問い合わせは、お電話もしくはお問い合わせフォームにて受け付けております。お気軽にお問い合わせください。TEL：052-232-8229">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="webclip152.png">
+</head>
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.5&appId=643231655816289";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <!--ヘッダー-->
+  <header>
+    <div class="logo">丸山のホームページ</div>
+
+    <nav>
+      <a href="index.html">ホーム</a>
+      <a href="course.html">生い立ち</a>
+      <!-- <a href="gallery.html">趣味</a> -->
+      <a href="access2.html">アクセス</a>
+      <a href="contact.html">質問箱</a>
+    </nav>
+  </header>
+  <!--/ヘッダー-->
+
+  <!--wrapper-->
+  <div id="wrapper">
+    <!--メイン-->
+    <div id="main">
+      <div id="breadcrumb">
+        <ol>
+          <li><a href="index.html">HOME</a></li>
+          <li>お問い合わせ</li>
+        </ol>
+      </div>
+      <article>        
+        <h1>質問箱</h1>
+        <p class="lead">お気軽にお問い合わせください</p>
+        <p>下記メールフォームをご記入いただき、「送信する」ボタンを押してください。</p>
+        <p>「<span class="must">※</span>」は必須項目です。</p>
+        <section>
+          <h2>お問い合わせフォーム</h2>
+          <form id="entry">
+            <dl>
+              <dt>お名前 <span class="must">※</span></dt>
+              <dd><input type="text" name="name" id="name" required></dd>
+              <dt>メールアドレス <span class="must">※</span></dt>
+              <dd><input type="email" name="email" id="email" required></dd>
+              
+              <dt>丸山を知ったきっかけ</dt>
+              <dd>
+                <label><input type="radio" name="questionnaire" id="questionnaire1" value="口コミ">口コミ</label>
+                <label><input type="radio" name="questionnaire" id="questionnaire2" value="検索エンジンから">検索エンジンから</label>
+                <label><input type="radio" name="questionnaire" id="questionnaire3" value="その他">その他</label>
+              </dd>
+              <dt>お問い合せ内容</dt>
+              <dd>
+                <textarea name="detail" id="detail"></textarea>
+              </dd>
+            </dl>
+            <p id="submit_button_cover">
+              <input type="submit" id="submit_button" value="送信する">
+            </p>
+          </form>
+        </section>
+      </article>
+      <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+    </div>
+    <!--/メイン-->
+
+    
+  </div>
+  <!--/wrapper-->
+
+  <!--フッター-->
+  <footer>
+    <div id="footer_nav">
+      <p id="media">SNS</p>
+      <ul>
+        <li><a href="https://www.facebook.com/tadashi.honda.545"><img src="images/新facebook.png" width="30" alt=""></a></li>
+        <li><a href="https://x.com/ohara_fukuoka"><img src="images/画像10.png" width="30" alt=""></a></li>
+        <li><img src="images/新しんインスタ.png" width="30 alt=""></li>
+        
+      </ul>
+    </div>
+    <small>&copy; 2025 Maruyama.</small>
+  </footer>
+  <!--/フッター-->
+  
+</body>
+</html>

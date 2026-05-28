@@ -1,0 +1,15 @@
+class info_main:
+    def __init__(self, name, old, birth, state):
+        self.name = name
+        self.old = old
+        self.birth = birth
+        self.state = state
+
+n  = int(input())
+lst = [None]*n
+for i in range(n):
+    name, old, birth, state  = input().split()
+    lst[i] = info_main(name, old, birth, state) 
+
+
+print(f'{lst[1]}')

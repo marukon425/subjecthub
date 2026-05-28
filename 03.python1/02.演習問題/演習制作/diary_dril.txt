@@ -1,0 +1,3 @@
+今日の一言：hello
+今日の一言：world
+今日の一言：Learn a programming language
