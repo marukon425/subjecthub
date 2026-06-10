@@ -52,8 +52,6 @@ class PhotoViewer {
 const images = [
     `https://placehold.jp/81daf5/ffffff/250x250.png`,
     `https://placehold.jp/f781f3/ffffff/250x250.png`,
-    `https://placehold.jp/81F7D8/ffffff/250x250.png`,
-    `../IMG_7138.PNG`
-];
+    `https://placehold.jp/81F7D8/ffffff/250x250.png`];
 
 new PhotoViewer(document.getElementById('photoViewer'), images).init();
