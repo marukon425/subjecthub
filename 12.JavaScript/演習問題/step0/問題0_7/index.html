@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="parent"></ul>
+    <script>
+        const par = document.getElementById('parent');
+        const dic = {
+            "キャベツ":"春",
+            "スイカ":"夏",
+            "ナス":"秋",
+            "白菜":"冬",
+            "野菜":"季節"
+        }
+        console.log(dic)
+        
+        for (const key in dic) {
+            console.log(dic[key])
+            const li = document.createElement('li');
+            li.textContent = `${key}:${dic[key]}`;
+            par.appendChild(li);
+        }
+    </script>
+</body>
+</html>

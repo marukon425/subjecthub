@@ -1,0 +1,42 @@
+<html><head>
+<title>五目並べ</title>
+<style type="text/css">
+  table { border: 2px solid; text-align: center; vertical-align: middle; border-collapse: collapse; }
+  td    { border: 1px solid #888; width: 36px; height: 36px; }
+  button { width: 30px; height: 30px; font-size: 12px; cursor: pointer; }
+  .stone { font-size: 20px; line-height: 36px; }
+</style>
+</head><body>
+<h2>五目並べ</h2>
+<div>
+    {{if $.Win}}
+        <b style="color:red; font-size:18px;">【{{$.Winner}}の勝ち！】</b>
+    {{else if $.Draw}}
+        <b style="font-size:18px;">【引き分け】</b>
+    {{else}}
+        【{{$.Turn}}の手番】
+    {{end}}
+</div><br>
+<form action="/game" method="post">
+    <input type="hidden" name="turn" value="{{$.Turn}}">
+    <table>
+        {{range $row, $rows := $.Board}}
+            <tr>
+                {{range $col, $cell := $rows}}
+                <td>
+                    {{if $cell}}
+                        {{/* 置いた石または "-"（無効マス）を表示 */}}
+                        <span class="stone">{{if ne $cell "-"}}{{$cell}}{{end}}</span>
+                        <input type="hidden" name="c{{$row}}_{{$col}}" value="{{$cell}}">
+                    {{else}}
+                        {{/* 空マスはボタンを表示 */}}
+                        <button name="c{{$row}}_{{$col}}" value="{{$.Turn}}"></button>
+                    {{end}}
+                </td>
+                {{end}}
+            </tr>
+        {{end}}
+    </table>
+</form>
+<br><a href="/game">最初に戻る</a>
+</body></html>

@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>回転寿司打</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body {
+  font-family:'Noto Serif JP','Yu Mincho','Hiragino Mincho ProN',serif;
+  background:#1a0a04;
+  min-height:100vh;
+  overflow:hidden;
+  user-select:none;
+}
+
+/* ===== 背景 ===== */
+.bg {
+  position:fixed; inset:0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(160,40,10,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(160,40,10,0.12) 0%, transparent 50%),
+    linear-gradient(180deg, #0d0804 0%, #1e0e06 40%, #150c04 70%, #1e1208 100%);
+}
+/* 木目の壁 */
+.bg::before {
+  content:'';
+  position:fixed; inset:0;
+  background:
+    repeating-linear-gradient(87deg, transparent 0, transparent 60px,
+      rgba(60,25,5,0.08) 60px, rgba(60,25,5,0.08) 62px),
+    repeating-linear-gradient(93deg, transparent 0, transparent 120px,
+      rgba(80,35,8,0.05) 120px, rgba(80,35,8,0.05) 122px);
+}
+
+/* ===== 天井 ===== */
+.ceiling {
+  position:fixed; top:0; left:0; right:0; height:68px;
+  background:linear-gradient(180deg,#080503 0%,#150a04 100%);
+  border-bottom:3px solid #3a1c08;
+  z-index:5;
+  box-shadow:0 4px 20px rgba(0,0,0,0.7);
+}
+/* 天井の溝 */
+.ceiling::before {
+  content:'';
+  position:absolute; bottom:8px; left:0; right:0;
+  height:2px;
+  background:linear-gradient(90deg,transparent 0%,rgba(180,100,30,0.4) 20%,
+    rgba(220,150,60,0.6) 50%,rgba(180,100,30,0.4) 80%,transparent 100%);
+}
+
+/* ===== 暖簾 ===== */
+.noren {
+  position:fixed; top:0; left:50%; transform:translateX(-50%);
+  display:flex; gap:3px; z-index:20;
+}
+.ns {
+  width:48px; height:108px;
+  border-radius:0 0 24px 24px;
+  display:flex; align-items:flex-end; justify-content:center;
+  padding-bottom:10px;
+  transform-origin:top center;
+}
+.ns:nth-child(odd) {
+  background:linear-gradient(180deg,#cc2200,#991600);
+  border:2px solid #881500;
+  animation:sway 3.5s ease-in-out infinite;
+}
+.ns:nth-child(even) {
+  background:linear-gradient(180deg,#f5f0e4,#e0d8c8);
+  border:2px solid #c8b898;
+  animation:sway 3.5s ease-in-out infinite;
+  animation-delay:0.4s;
+}
+.ns span { font-size:12px; font-weight:700; writing-mode:vertical-rl; }
+.ns:nth-child(odd) span { color:#f5f0e4; }
+.ns:nth-child(even) span { color:#882200; }
+@keyframes sway {
+  0%,100%{transform:rotate(-1.5deg);} 50%{transform:rotate(1.5deg);}
+}
+
+/* ===== 提灯 ===== */
+.lantern { position:fixed; z-index:6; display:flex; flex-direction:column; align-items:center; }
+.l-cap {
+  width:28px; height:8px;
+  background:linear-gradient(90deg,#3a1c08,#5a2e10,#3a1c08);
+  border-radius:4px 4px 0 0;
+}
+.l-string { width:3px; height:18px; background:#7a4a1a; }
+.l-body {
+  width:52px; height:72px; border-radius:50%;
+  background:
+    radial-gradient(ellipse at 35% 35%, rgba(255,180,100,0.4) 0%, transparent 50%),
+    linear-gradient(160deg,#ee3311 0%,#cc2200 40%,#aa1800 70%,#881400 100%);
+  box-shadow:0 0 18px rgba(255,80,40,0.5),0 0 40px rgba(200,60,20,0.3),
+    inset -12px 0 16px rgba(0,0,0,0.4),inset 5px 5px 10px rgba(255,150,80,0.2);
+  display:flex; align-items:center; justify-content:center;
+  position:relative;
+  animation:lglow 2.2s ease-in-out infinite;
+}
+.l-body::before,.l-body::after {
+  content:'';
+  position:absolute; left:50%; transform:translateX(-50%);
+  width:54px; height:6px; background:rgba(150,30,10,0.7); border-radius:3px;
+}
+.l-body::before{top:9px;} .l-body::after{bottom:9px;}
+.l-text {
+  color:#fff8ee; font-size:11px; font-weight:700;
+  writing-mode:vertical-rl; letter-spacing:2px;
+  text-shadow:0 0 6px rgba(0,0,0,0.8);
+  position:relative; z-index:1;
+}
+.l-bottom { width:8px; height:14px; background:#7a4a1a; border-radius:0 0 4px 4px; }
+@keyframes lglow {
+  0%,100%{box-shadow:0 0 18px rgba(255,80,40,0.5),0 0 40px rgba(200,60,20,0.3),inset -12px 0 16px rgba(0,0,0,0.4),inset 5px 5px 10px rgba(255,150,80,0.2);}
+  50%{box-shadow:0 0 28px rgba(255,100,50,0.7),0 0 55px rgba(220,80,30,0.45),inset -12px 0 16px rgba(0,0,0,0.4),inset 5px 5px 10px rgba(255,150,80,0.2);}
+}
+
+/* ===== HUD ===== */
+.hud {
+  position:relative; z-index:10;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:8px 30px; height:64px;
+  background:linear-gradient(180deg,rgba(18,8,2,0.95),rgba(12,5,1,0.9));
+  border-bottom:2px solid #4a2208;
+  margin-top:68px;
+}
+.hud-item { display:flex; flex-direction:column; align-items:center; gap:1px; }
+.hud-lbl { font-size:10px; color:#7a5020; letter-spacing:3px; }
+.hud-val {
+  font-size:21px; font-weight:700; color:#f0d870;
+  text-shadow:0 0 8px rgba(240,200,80,0.35);
+  font-variant-numeric:tabular-nums; min-width:80px; text-align:center;
+}
+.hud-val.green{color:#88ee88;text-shadow:0 0 8px rgba(100,220,100,0.5);}
+.hud-val.red{color:#ff6644;text-shadow:0 0 8px rgba(255,100,60,0.5);}
+.hud-title {
+  font-size:18px; font-weight:700; color:#f0d870;
+  letter-spacing:5px; text-shadow:0 0 12px rgba(240,200,80,0.4);
+}
+/* 残り時間ゲージ */
+.timer-bar-wrap {
+  width:100px; height:6px; background:rgba(255,255,255,0.1);
+  border-radius:3px; margin-top:2px; overflow:hidden;
+}
+.timer-bar {
+  height:100%; background:linear-gradient(90deg,#ff6644,#f0d870);
+  border-radius:3px; transition:width 0.9s linear, background 0.5s;
+}
+
+/* ===== ベルト ===== */
+.belt-section {
+  position:relative; z-index:10;
+  margin:18px 0;
+}
+.belt-rail {
+  position:relative;
+  height:20px; left:0; right:0;
+  background:linear-gradient(180deg,
+    #e8c060 0%,#c8a030 30%,#a07818 60%,#c8a030 80%,#e8c060 100%);
+  box-shadow:0 3px 8px rgba(0,0,0,0.6);
+}
+.belt-rail.top { border-radius:5px 5px 0 0; }
+.belt-rail.bot { border-radius:0 0 5px 5px; }
+/* レールの装飾ボルト */
+.belt-rail::before {
+  content:'';
+  position:absolute; top:50%; transform:translateY(-50%);
+  left:0; right:0; height:4px;
+  background:repeating-linear-gradient(90deg,
+    transparent 0,transparent 98px,
+    rgba(180,130,40,0.8) 98px,rgba(180,130,40,0.8) 100px,
+    rgba(220,180,80,0.9) 100px,rgba(220,180,80,0.9) 102px,
+    transparent 102px,transparent 200px);
+}
+.belt {
+  position:relative; height:168px; overflow:hidden;
+  background:#242018;
+}
+/* ベルトの動く縞模様 */
+.belt-bg {
+  position:absolute; inset:0;
+  background:repeating-linear-gradient(90deg,
+    #242018 0,#242018 36px,
+    #2e2820 36px,#2e2820 37px,
+    #342e24 37px,#342e24 38px,
+    #2e2820 38px,#2e2820 39px,
+    #242018 39px,#242018 75px
+  );
+  animation:beltScroll 1.4s linear infinite;
+}
+@keyframes beltScroll {
+  from{transform:translateX(0);}
+  to{transform:translateX(-75px);}
+}
+/* ベルト端のグラデーション（左右が暗くなる） */
+.belt::before,.belt::after {
+  content:''; position:absolute; top:0; bottom:0; width:100px; z-index:4; pointer-events:none;
+}
+.belt::before { left:0; background:linear-gradient(90deg,rgba(15,10,3,0.8),transparent); }
+.belt::after  { right:0; background:linear-gradient(-90deg,rgba(15,10,3,0.8),transparent); }
+
+/* ===== 皿 ===== */
+.plate {
+  position:absolute; top:50%; transform:translateY(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:5px;
+  animation:plateSlide var(--spd) linear forwards;
+  z-index:2;
+}
+@keyframes plateSlide { from{left:105%;} to{left:-18%;} }
+
+.bubble {
+  background:rgba(15,8,2,0.92);
+  border:1.5px solid rgba(200,150,50,0.5);
+  border-radius:14px; padding:3px 10px;
+  font-size:13px; color:#f0d870; white-space:nowrap;
+  position:relative;
+}
+.bubble::after {
+  content:''; position:absolute; bottom:-6px; left:50%; transform:translateX(-50%);
+  border:4px solid transparent; border-top-color:rgba(15,8,2,0.92);
+}
+
+.dish {
+  width:94px; height:94px; border-radius:50%;
+  background:linear-gradient(140deg,#f8f5ec 0%,#e8e0d0 60%,#d0c8b8 100%);
+  border:3px solid;
+  box-shadow:0 5px 14px rgba(0,0,0,0.5),inset 0 -4px 8px rgba(0,0,0,0.12);
+  display:flex; align-items:center; justify-content:center;
+  position:relative; overflow:hidden;
+  transition:box-shadow 0.2s;
+}
+.dish::before {
+  content:''; position:absolute;
+  top:10px; left:10px; right:10px; bottom:10px;
+  border-radius:50%; border:1px solid rgba(200,180,140,0.3);
+}
+/* 皿の色グレード */
+.plate[data-g="1"] .dish{border-color:#c8c0b0;}
+.plate[data-g="2"] .dish{border-color:#d4aa30;}
+.plate[data-g="3"] .dish{border-color:#4488cc;}
+.plate[data-g="4"] .dish{border-color:#cc4422;}
+/* アクティブ皿はハイライト */
+.plate.active .dish {
+  box-shadow:0 5px 14px rgba(0,0,0,0.5),
+    0 0 0 3px rgba(255,210,60,0.7),
+    0 0 16px rgba(255,200,50,0.5);
+}
+
+/* 寿司の絵 */
+.sg { width:68px; height:48px; position:relative; }
+.sr { /* シャリ */
+  position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+  width:60px; height:24px;
+  background:linear-gradient(180deg,#f8f4e8 0%,#e4dcc4 100%);
+  border-radius:60px/12px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.2);
+}
+.st { /* ネタ */
+  position:absolute; top:0; left:50%; transform:translateX(-50%);
+  width:64px; height:28px;
+  border-radius:14px 14px 8px 8px;
+  box-shadow:0 3px 8px rgba(0,0,0,0.3),inset 0 2px 4px rgba(255,255,255,0.2);
+}
+/* 軍艦巻きスタイル（うに・いくら） */
+.sg.gunkan .sr {
+  border-radius:30px; height:30px;
+  background:linear-gradient(180deg,#2a1e08 0%,#1a1206 100%);
+}
+.sg.gunkan .st { top:6px; width:52px; border-radius:8px; height:18px; }
+
+.price-tag {
+  background:rgba(15,8,2,0.88);
+  border:1px solid rgba(180,130,40,0.45);
+  border-radius:10px; padding:2px 8px;
+  font-size:11px; color:#c8a040; font-weight:700;
+}
+
+/* ===== 食べアニメ ===== */
+@keyframes eatAnim {
+  0%  {transform:translateY(-50%) scale(1);opacity:1;}
+  40% {transform:translateY(-90%) scale(1.25);opacity:0.9;}
+  100%{transform:translateY(-130%) scale(0.1);opacity:0;}
+}
+@keyframes missAnim {
+  0%  {transform:translateY(-50%);}
+  20% {transform:translateY(-50%) translateX(8px) rotate(4deg);}
+  40% {transform:translateY(-50%) translateX(-8px) rotate(-4deg);}
+  60% {transform:translateY(-50%) translateX(5px) rotate(2deg);}
+  80% {transform:translateY(-50%) translateX(-5px) rotate(-2deg);}
+  100%{transform:translateY(-50%);opacity:0.3;}
+}
+.plate.eating {
+  animation:eatAnim 0.45s ease-out forwards !important;
+  pointer-events:none;
+}
+.plate.missing {
+  animation:missAnim 0.5s ease-out forwards !important;
+  pointer-events:none;
+}
+
+/* ===== タイピングエリア ===== */
+.type-section {
+  position:relative; z-index:10;
+  flex:1; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:14px;
+  padding:16px 20px;
+}
+.word-jp {
+  font-size:44px; font-weight:700; letter-spacing:6px;
+  color:#f0d870; text-shadow:0 0 18px rgba(240,200,80,0.45);
+  min-height:54px; text-align:center;
+  transition:color 0.15s;
+}
+.word-jp.err {animation:errFlash 0.18s ease-out;}
+.word-jp.ok  {animation:okFlash  0.3s  ease-out;}
+@keyframes errFlash{0%,100%{color:#f0d870;}50%{color:#ff4422;text-shadow:0 0 24px rgba(255,70,30,0.9);}}
+@keyframes okFlash {0%{color:#f0d870;}50%{color:#aaff99;text-shadow:0 0 24px rgba(150,255,130,0.9);}100%{color:#f0d870;}}
+
+.word-romaji {
+  font-family:'Courier New',monospace;
+  font-size:30px; letter-spacing:4px; min-height:40px;
+}
+.rt { color:#88ee88; text-shadow:0 0 8px rgba(100,230,100,0.5); } /* typed */
+.rn {                                                                /* next */
+  color:#f0d870; text-shadow:0 0 10px rgba(240,210,80,0.7);
+  border-bottom:2px solid rgba(240,200,80,0.7);
+  padding-bottom:1px;
+}
+.rr { color:#4a3010; } /* remaining */
+
+.hint { font-size:13px; color:#5a3810; letter-spacing:2px; margin-top:4px; }
+
+/* ===== COMBO ===== */
+.combo-wrap {
+  position:fixed; top:160px; right:24px; text-align:center; z-index:20;
+  display:none;
+}
+.combo-n {
+  font-size:40px; font-weight:700; color:#ffaa44;
+  text-shadow:0 0 16px rgba(255,170,60,0.7);
+  animation:comboPop 0.25s ease-out;
+}
+@keyframes comboPop{0%{transform:scale(1.5);}100%{transform:scale(1);}}
+.combo-l { font-size:13px; color:#c8a030; letter-spacing:3px; }
+
+/* ===== スコアポップアップ ===== */
+.spop {
+  position:fixed; z-index:50; font-size:22px; font-weight:700;
+  pointer-events:none; white-space:nowrap;
+  animation:popFloat 1s ease-out forwards;
+}
+.spop.gain { color:#aaff88; text-shadow:0 0 10px rgba(150,255,100,0.7); }
+.spop.miss { color:#ff7755; text-shadow:0 0 10px rgba(255,120,80,0.7); }
+@keyframes popFloat {
+  0%  {opacity:1;transform:translateY(0);}
+  100%{opacity:0;transform:translateY(-70px);}
+}
+
+/* ===== オーバーレイ ===== */
+.ov {
+  position:fixed; inset:0; background:rgba(8,3,1,0.88);
+  z-index:100; display:flex; align-items:center; justify-content:center;
+}
+.ov-box {
+  background:linear-gradient(180deg,#3e2410 0%,#1e0e04 100%);
+  border:3px solid #c8a030; border-radius:14px;
+  padding:42px 64px; text-align:center;
+  box-shadow:0 0 0 7px rgba(200,160,48,0.12),0 24px 64px rgba(0,0,0,0.9);
+  max-width:480px; width:90%;
+}
+.ov-title {
+  font-size:30px; color:#f0d870; letter-spacing:5px;
+  margin-bottom:18px; text-shadow:0 0 14px rgba(240,200,80,0.45);
+}
+.ov-sub { color:#7a5020; letter-spacing:2px; font-size:14px; margin-bottom:22px; }
+.cbtn {
+  display:block; width:100%; padding:14px 0;
+  margin:10px 0;
+  background:linear-gradient(180deg,#6a3e10 0%,#4a2a08 100%);
+  border:2px solid #c8a030; border-radius:8px;
+  color:#f0d870; font-family:inherit; font-size:17px;
+  cursor:pointer; letter-spacing:3px;
+  transition:all 0.18s;
+}
+.cbtn:hover {
+  background:linear-gradient(180deg,#8a5220 0%,#6a3810 100%);
+  box-shadow:0 0 16px rgba(200,160,48,0.5);
+  transform:scale(1.02);
+}
+/* リザルト */
+.rrow {
+  display:flex; justify-content:space-between; align-items:center;
+  margin:8px 0; gap:40px; font-size:15px; color:#c8a050; letter-spacing:2px;
+}
+.rrow .rv { font-size:20px; font-weight:700; color:#f0d870; }
+.rdiv { border:none; border-top:1px solid #4a2808; margin:14px 0; }
+.rprofit { font-size:30px; font-weight:700; letter-spacing:4px; margin:14px 0; }
+.rprofit.plus{color:#aaff88;text-shadow:0 0 16px rgba(150,255,120,0.6);}
+.rprofit.minus{color:#ff7755;text-shadow:0 0 16px rgba(255,120,80,0.6);}
+.rstars { font-size:26px; margin:8px 0; }
+
+/* ===== カウントダウン ===== */
+.cdov {
+  position:fixed; inset:0; background:rgba(8,3,1,0.75);
+  z-index:90; display:flex; align-items:center; justify-content:center;
+}
+.cdnum {
+  font-size:130px; font-weight:700; color:#f0d870;
+  text-shadow:0 0 40px rgba(240,200,80,0.8);
+  animation:cdPop 0.9s ease-out forwards;
+}
+@keyframes cdPop{0%{transform:scale(2.2);opacity:1;}100%{transform:scale(0.4);opacity:0;}}
+
+/* ===== レイアウト ===== */
+.game {
+  position:relative; z-index:10;
+  display:flex; flex-direction:column; height:100vh;
+}
+.game > .hud { flex:0 0 auto; }
+.game > .belt-section { flex:0 0 auto; }
+.game > .type-section { flex:1; }
+</style>
+</head>
+<body>
+<div class="bg"></div>
+
+<div class="ceiling"></div>
+
+<!-- 暖簾 -->
+<div class="noren">
+  <div class="ns"><span>回</span></div>
+  <div class="ns"><span>転</span></div>
+  <div class="ns"><span>寿</span></div>
+  <div class="ns"><span>司</span></div>
+  <div class="ns"><span>打</span></div>
+</div>
+
+<!-- 提灯 左右 -->
+<div class="lantern" style="left:50px;top:72px;">
+  <div class="l-cap"></div><div class="l-string"></div>
+  <div class="l-body"><span class="l-text">寿司</span></div>
+  <div class="l-bottom"></div>
+</div>
+<div class="lantern" style="right:50px;top:72px;">
+  <div class="l-cap"></div><div class="l-string"></div>
+  <div class="l-body"><span class="l-text">打</span></div>
+  <div class="l-bottom"></div>
+</div>
+
+<!-- コンボ表示 -->
+<div class="combo-wrap" id="comboWrap">
+  <div class="combo-n" id="comboN">0</div>
+  <div class="combo-l">コンボ！</div>
+</div>
+
+<div class="game">
+  <!-- HUD -->
+  <div class="hud">
+    <div class="hud-item">
+      <div class="hud-lbl">予　算</div>
+      <div class="hud-val" id="hudBudget">¥3,000</div>
+    </div>
+    <div class="hud-item" style="flex:1;text-align:center;">
+      <div class="hud-title">回 転 寿 司 打</div>
+    </div>
+    <div class="hud-item">
+      <div class="hud-lbl">食 べ た</div>
+      <div class="hud-val" id="hudScore">¥0</div>
+    </div>
+    <div class="hud-item" style="min-width:90px;">
+      <div class="hud-lbl">残り時間</div>
+      <div class="hud-val" id="hudTimer">60</div>
+      <div class="timer-bar-wrap">
+        <div class="timer-bar" id="timerBar" style="width:100%"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ベルト -->
+  <div class="belt-section">
+    <div class="belt-rail top"></div>
+    <div class="belt" id="belt"><div class="belt-bg"></div></div>
+    <div class="belt-rail bot"></div>
+  </div>
+
+  <!-- タイピング -->
+  <div class="type-section">
+    <div class="word-jp" id="wordJp"></div>
+    <div class="word-romaji" id="wordRomaji"></div>
+    <div class="hint" id="hint">コースを選んでスタート！</div>
+  </div>
+</div>
+
+<!-- スタート画面 -->
+<div class="ov" id="ovStart">
+  <div class="ov-box">
+    <div class="ov-title">回転寿司打</div>
+    <div class="ov-sub">コースを選んでください</div>
+    <button class="cbtn" onclick="startGame(3000,60)">並コース　¥3,000（60秒）</button>
+    <button class="cbtn" onclick="startGame(5000,75)">上コース　¥5,000（75秒）</button>
+    <button class="cbtn" onclick="startGame(10000,90)">特上コース　¥10,000（90秒）</button>
+  </div>
+</div>
+
+<!-- リザルト画面 -->
+<div class="ov" id="ovResult" style="display:none">
+  <div class="ov-box">
+    <div class="ov-title">お 会 計</div>
+    <div class="rrow"><span>お支払い</span><span class="rv" id="rBudget"></span></div>
+    <div class="rrow"><span>食べた金額</span><span class="rv" id="rScore"></span></div>
+    <div class="rrow"><span>正解した皿数</span><span class="rv" id="rPlates"></span></div>
+    <div class="rrow"><span>最大コンボ</span><span class="rv" id="rCombo"></span></div>
+    <hr class="rdiv">
+    <div class="rprofit" id="rProfit"></div>
+    <div class="rstars" id="rStars"></div>
+    <button class="cbtn" onclick="showStart()">もう一局</button>
+  </div>
+</div>
+
+<!-- カウントダウン -->
+<div class="cdov" id="ovCd" style="display:none">
+  <div class="cdnum" id="cdNum"></div>
+</div>
+
+<script>
+// ===== 単語リスト =====
+const WORDS = [
+  // 寿司ネタ
+  {t:'まぐろ',     d:'鮪',          r:'maguro',       p:300, c:'#cc3333'},
+  {t:'おおとろ',   d:'大トロ',      r:'ootoro',       p:500, c:'#cc3344'},
+  {t:'ちゅうとろ', d:'中トロ',      r:'chuutoro',     p:400, c:'#cc3d3d'},
+  {t:'さけ',       d:'鮭',          r:'sake',         p:200, c:'#ff7733'},
+  {t:'えび',       d:'海老',        r:'ebi',          p:300, c:'#ff8866'},
+  {t:'たこ',       d:'蛸',          r:'tako',         p:200, c:'#7744aa'},
+  {t:'いか',       d:'烏賊',        r:'ika',          p:200, c:'#dddacc'},
+  {t:'うに',       d:'雲丹',        r:'uni',          p:500, c:'#ffaa00', gk:true},
+  {t:'いくら',     d:'いくら',      r:'ikura',        p:400, c:'#ff3300', gk:true},
+  {t:'たまご',     d:'玉子',        r:'tamago',       p:100, c:'#ffdd44'},
+  {t:'かに',       d:'蟹',          r:'kani',         p:300, c:'#ff4422'},
+  {t:'ほたて',     d:'帆立',        r:'hotate',       p:400, c:'#ffe8cc'},
+  {t:'あわび',     d:'鮑',          r:'awabi',        p:500, c:'#ddccaa'},
+  {t:'あなご',     d:'穴子',        r:'anago',        p:300, c:'#886633'},
+  {t:'ひらめ',     d:'平目',        r:'hirame',       p:400, c:'#eeeedd'},
+  {t:'はまち',     d:'鰤',          r:'hamachi',      p:300, c:'#ffaa55'},
+  {t:'たい',       d:'鯛',          r:'tai',          p:300, c:'#ffcccc'},
+  {t:'しらす',     d:'白子',        r:'shirasu',      p:200, c:'#f0efdf'},
+  {t:'かっぱ',     d:'かっぱ巻',    r:'kappa',        p:100, c:'#558833'},
+  {t:'なっとう',   d:'納豆',        r:'nattou',       p:100, c:'#ccbb33'},
+  {t:'あじ',       d:'鯵',          r:'aji',          p:200, c:'#aabb88'},
+  {t:'さば',       d:'鯖',          r:'saba',         p:200, c:'#88aacc'},
+  {t:'まだこ',     d:'真蛸',        r:'madako',       p:250, c:'#886699'},
+  // 食べ物
+  {t:'ラーメン',   d:'拉麺',        r:'raamen',       p:250, c:'#ffaa33'},
+  {t:'うどん',     d:'饂飩',        r:'udon',         p:200, c:'#f0eedc'},
+  {t:'そば',       d:'蕎麦',        r:'soba',         p:200, c:'#887755'},
+  {t:'てんぷら',   d:'天ぷら',      r:'tenpura',      p:300, c:'#cc8833'},
+  {t:'やきにく',   d:'焼肉',        r:'yakiniku',     p:300, c:'#884422'},
+  {t:'おにぎり',   d:'御握り',      r:'onigiri',      p:150, c:'#f0eedc'},
+  {t:'みそしる',   d:'味噌汁',      r:'misoshiru',    p:150, c:'#cc8833'},
+  {t:'とうふ',     d:'豆腐',        r:'toufu',        p:100, c:'#f0f0ee'},
+  {t:'やきとり',   d:'焼鳥',        r:'yakitori',     p:250, c:'#996633'},
+  {t:'たこやき',   d:'たこ焼き',    r:'takoyaki',     p:250, c:'#cc8833'},
+  {t:'てっか',     d:'鉄火巻',      r:'tekka',        p:200, c:'#cc2222'},
+  // 日本語単語
+  {t:'さくら',     d:'桜',          r:'sakura',       p:200, c:'#ffaabb'},
+  {t:'にほん',     d:'日本',        r:'nihon',        p:200, c:'#cc2200'},
+  {t:'とうきょう', d:'東京',        r:'toukyou',      p:250, c:'#4466cc'},
+  {t:'おおさか',   d:'大阪',        r:'oosaka',       p:250, c:'#cc6622'},
+  {t:'きょうと',   d:'京都',        r:'kyouto',       p:250, c:'#886633'},
+  {t:'ふじさん',   d:'富士山',      r:'fujisan',      p:300, c:'#eeeeff'},
+  {t:'しんかんせん',d:'新幹線',     r:'shinkansen',   p:400, c:'#ddeeee'},
+  {t:'ありがとう', d:'感謝',        r:'arigatou',     p:350, c:'#ffaa44'},
+  {t:'おいしい',   d:'美味しい',    r:'oishii',       p:300, c:'#ffdd66'},
+  {t:'たのしい',   d:'楽しい',      r:'tanoshii',     p:300, c:'#88eeaa'},
+  {t:'かいてんずし',d:'回転寿司',   r:'kaitenzushi',  p:400, c:'#cc3311'},
+  {t:'いただきます',d:'頂きます',   r:'itadakimasu',  p:500, c:'#f0d870'},
+  {t:'ごちそうさま',d:'御馳走様',   r:'gochisousama', p:500, c:'#f0d870'},
+  {t:'もりもり',   d:'盛盛',        r:'morimori',     p:250, c:'#88cc44'},
+  {t:'ぱくぱく',   d:'ぱくぱく',    r:'pakupaku',     p:200, c:'#ffaa88'},
+  {t:'にぎにぎ',   d:'握握',        r:'niginigi',     p:200, c:'#ffdd88'},
+  // 長い・難しめ
+  {t:'さしすせそ', d:'さしすせそ',  r:'sashisuseso',  p:400, c:'#88aaff'},
+  {t:'たけやぶやけた',d:'竹藪焼けた',r:'takeyabuyaketa',p:500, c:'#88cc44'},
+  {t:'いろはにほへと',d:'伊呂波',   r:'irohanihoheto',p:600, c:'#ffaa44'},
+  {t:'やまのあなた',d:'山の彼方',   r:'yamanoanata',  p:400, c:'#aabbcc'},
+  {t:'はるかなくに',d:'遥かな国',   r:'harukanakuni', p:400, c:'#aaddbb'},
+];
+
+// ===== 状態 =====
+let budget=3000, maxTime=60, score=0, timeLeft=60;
+let gameActive=false;
+let plates=[], pid=0;
+let combo=0, maxCombo=0, eatCount=0;
+let typedCount=0, activePid=null;
+let timerIv=null, spawnIv=null;
+let spawnDelay=3000, plateDur=10;
+let queue=[], totalTimeSec=60;
+
+const belt    = document.getElementById('belt');
+const wordJp  = document.getElementById('wordJp');
+const wordRomaji = document.getElementById('wordRomaji');
+const hint    = document.getElementById('hint');
+const hudScore = document.getElementById('hudScore');
+const hudTimer = document.getElementById('hudTimer');
+const timerBar = document.getElementById('timerBar');
+const comboWrap = document.getElementById('comboWrap');
+const comboN  = document.getElementById('comboN');
+
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function nextWord(){if(!queue.length)queue=shuffle([...WORDS]);return queue.pop();}
+
+// ===== 皿スポーン =====
+function spawnPlate(){
+  if(!gameActive)return;
+  const w=nextWord();
+  const id=pid++;
+  const g=w.p>=500?4:w.p>=400?3:w.p>=300?2:1;
+  const el=document.createElement('div');
+  el.className='plate';
+  el.dataset.id=id; el.dataset.g=g;
+  el.style.setProperty('--spd', plateDur+'s');
+  const gkClass = w.gk ? ' gunkan' : '';
+  el.innerHTML=`
+    <div class="bubble">${w.d}</div>
+    <div class="dish">
+      <div class="sg${gkClass}">
+        <div class="st" style="background:${w.c};"></div>
+        <div class="sr"></div>
+      </div>
+    </div>
+    <div class="price-tag">¥${w.p}</div>`;
+  belt.appendChild(el);
+
+  const pd={id,word:w,el,eaten:false,missed:false};
+  plates.push(pd);
+
+  // アニメ終了 = ミス
+  el.addEventListener('animationend',()=>{
+    if(!pd.eaten) missPlate(pd);
+  });
+
+  if(activePid===null) setActive(id);
+}
+
+function setActive(id){
+  activePid=id; typedCount=0;
+  const pd=plates.find(p=>p.id===id);
+  if(!pd){activePid=null;updateTyping();return;}
+  pd.el.classList.add('active');
+  updateTyping();
+}
+
+function eatPlate(pd){
+  if(pd.eaten||pd.missed)return;
+  pd.eaten=true;
+  score+=pd.word.p; eatCount++;
+  combo++; if(combo>maxCombo)maxCombo=combo;
+  updateHUD(); updateCombo();
+  showPop('+¥'+pd.word.p, pd.el, false);
+  pd.el.classList.add('eating');
+  pd.el.classList.remove('active');
+  setTimeout(()=>pd.el.remove(),480);
+  wordJp.classList.add('ok');
+  setTimeout(()=>wordJp.classList.remove('ok'),300);
+  activePid=null; typedCount=0;
+  setTimeout(()=>{
+    const nxt=plates.find(p=>!p.eaten&&!p.missed);
+    if(nxt)setActive(nxt.id); else updateTyping();
+  },80);
+}
+
+function missPlate(pd){
+  if(pd.eaten||pd.missed)return;
+  pd.missed=true;
+  combo=0; updateCombo();
+  showPop('MISS', pd.el, true);
+  pd.el.classList.add('missing');
+  setTimeout(()=>pd.el.remove(),600);
+  if(activePid===pd.id){
+    activePid=null; typedCount=0;
+    const nxt=plates.find(p=>!p.eaten&&!p.missed);
+    if(nxt)setActive(nxt.id); else updateTyping();
+  }
+}
+
+// ===== 表示更新 =====
+function updateTyping(){
+  const pd=plates.find(p=>p.id===activePid);
+  if(!pd){
+    wordJp.textContent=''; wordRomaji.innerHTML='';
+    hint.textContent='次のお皿をお待ちください...';
+    return;
+  }
+  hint.textContent='';
+  wordJp.textContent=pd.word.t;
+  const r=pd.word.r;
+  const tp=r.slice(0,typedCount);
+  const nx=typedCount<r.length?r[typedCount]:'';
+  const rm=typedCount<r.length?r.slice(typedCount+1):'';
+  wordRomaji.innerHTML=
+    `<span class="rt">${tp}</span><span class="rn">${nx}</span><span class="rr">${rm}</span>`;
+}
+
+function updateHUD(){
+  hudScore.textContent='¥'+score.toLocaleString();
+  hudScore.className='hud-val'+(score>=budget?' green':'');
+  hudTimer.textContent=timeLeft;
+  hudTimer.className='hud-val'+(timeLeft<=10?' red':'');
+  const pct=Math.max(0,(timeLeft/totalTimeSec)*100);
+  timerBar.style.width=pct+'%';
+  if(timeLeft<=10) timerBar.style.background='linear-gradient(90deg,#ff4422,#ff8844)';
+  else timerBar.style.background='linear-gradient(90deg,#ff6644,#f0d870)';
+}
+
+function updateCombo(){
+  if(combo>=3){
+    comboWrap.style.display='block';
+    comboN.textContent=combo;
+    comboN.style.animation='none';
+    requestAnimationFrame(()=>{requestAnimationFrame(()=>{comboN.style.animation='comboPop 0.25s ease-out';});});
+  } else { comboWrap.style.display='none'; }
+}
+
+function showPop(txt, refEl, isMiss){
+  const p=document.createElement('div');
+  p.className='spop '+(isMiss?'miss':'gain');
+  p.textContent=txt;
+  const r=refEl.getBoundingClientRect();
+  p.style.left=(r.left+r.width/2-30)+'px';
+  p.style.top=(r.top-10)+'px';
+  document.body.appendChild(p);
+  setTimeout(()=>p.remove(),1050);
+}
+
+// ===== キー入力 =====
+document.addEventListener('keydown',(e)=>{
+  if(!gameActive)return;
+  if(e.key.length!==1||e.metaKey||e.ctrlKey||e.altKey)return;
+  e.preventDefault();
+  const pd=plates.find(p=>p.id===activePid);
+  if(!pd)return;
+  const r=pd.word.r;
+  if(e.key===r[typedCount]){
+    typedCount++;
+    updateTyping();
+    if(typedCount>=r.length) eatPlate(pd);
+  } else {
+    wordJp.classList.add('err');
+    setTimeout(()=>wordJp.classList.remove('err'),180);
+    combo=0; updateCombo();
+  }
+});
+
+// ===== ゲームフロー =====
+async function startGame(b,t){
+  budget=b; totalTimeSec=t; timeLeft=t; score=0;
+  gameActive=false;
+  // 難易度設定
+  if(b>=10000){plateDur=6;spawnDelay=2200;}
+  else if(b>=5000){plateDur=8;spawnDelay=2700;}
+  else{plateDur=10;spawnDelay=3200;}
+
+  plates.forEach(p=>p.el.remove());
+  plates=[]; activePid=null; typedCount=0; combo=0; maxCombo=0; eatCount=0; queue=[];
+  document.getElementById('ovStart').style.display='none';
+  document.getElementById('ovResult').style.display='none';
+  document.getElementById('hudBudget').textContent='¥'+b.toLocaleString();
+  hudScore.textContent='¥0'; hudScore.className='hud-val';
+  hudTimer.textContent=t; hudTimer.className='hud-val';
+  timerBar.style.width='100%'; timerBar.style.background='linear-gradient(90deg,#ff6644,#f0d870)';
+  comboWrap.style.display='none';
+  wordJp.textContent=''; wordRomaji.innerHTML='';
+  hint.textContent='';
+
+  await doCountdown();
+  gameActive=true;
+
+  timerIv=setInterval(()=>{
+    timeLeft--;
+    updateHUD();
+    if(timeLeft<=0) endGame();
+  },1000);
+
+  spawnPlate();
+  spawnIv=setInterval(spawnPlate, spawnDelay);
+}
+
+function doCountdown(){
+  return new Promise(res=>{
+    const ov=document.getElementById('ovCd');
+    const nm=document.getElementById('cdNum');
+    ov.style.display='flex';
+    let n=3;
+    const tick=()=>{
+      nm.textContent=n;
+      nm.style.animation='none';
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{nm.style.animation='cdPop 0.9s ease-out forwards';}));
+      n--;
+      if(n>0){setTimeout(tick,1000);}
+      else{
+        setTimeout(()=>{
+          nm.textContent='スタート！';
+          nm.style.animation='none';
+          requestAnimationFrame(()=>requestAnimationFrame(()=>{nm.style.animation='cdPop 0.9s ease-out forwards';}));
+          setTimeout(()=>{ov.style.display='none';res();},900);
+        },1000);
+      }
+    };
+    tick();
+  });
+}
+
+function endGame(){
+  gameActive=false;
+  clearInterval(timerIv); clearInterval(spawnIv);
+  plates.forEach(p=>p.el.remove());
+  plates=[]; activePid=null;
+  wordJp.textContent=''; wordRomaji.innerHTML=''; hint.textContent='';
+
+  const diff=score-budget;
+  document.getElementById('rBudget').textContent='¥'+budget.toLocaleString();
+  document.getElementById('rScore').textContent='¥'+score.toLocaleString();
+  document.getElementById('rPlates').textContent=eatCount+'皿';
+  document.getElementById('rCombo').textContent=maxCombo+'コンボ';
+  const profEl=document.getElementById('rProfit');
+  if(diff>=0){
+    profEl.textContent='+¥'+diff.toLocaleString()+'　お得！';
+    profEl.className='rprofit plus';
+  } else {
+    profEl.textContent='¥'+diff.toLocaleString()+'　赤字...';
+    profEl.className='rprofit minus';
+  }
+  // 星評価
+  const pct=score/budget;
+  const stars=pct>=1.5?'★★★':pct>=1.0?'★★☆':pct>=0.5?'★☆☆':'☆☆☆';
+  document.getElementById('rStars').textContent=stars;
+
+  setTimeout(()=>{document.getElementById('ovResult').style.display='flex';},1200);
+}
+
+function showStart(){
+  document.getElementById('ovResult').style.display='none';
+  document.getElementById('ovStart').style.display='flex';
+}
+</script>
+</body>
+</html>

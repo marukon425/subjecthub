@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>オセロ - 全力版</title>
+<style>
+:root {
+  --green-dark: #1a5c34;
+  --green-mid:  #2d8a4e;
+  --green-light:#3aad62;
+  --cell-size:  62px;
+  --stone-size: 50px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', 'Noto Sans JP', sans-serif;
+  background: radial-gradient(ellipse at top, #1a3a2a 0%, #0d1f16 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  color: #e8ffe8;
+}
+h1 {
+  font-size: 2rem;
+  letter-spacing: 0.15em;
+  color: #7fffa0;
+  text-shadow: 0 0 18px #00ff6a66;
+  margin-bottom: 12px;
+}
+
+/* ===== スコアボード ===== */
+.scoreboard {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 14px;
+  background: rgba(0,0,0,0.4);
+  border-radius: 16px;
+  padding: 10px 28px;
+  border: 1px solid #2d8a4e55;
+}
+.score-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.stone-preview {
+  width: 32px; height: 32px; border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+.stone-preview.black { background: radial-gradient(circle at 35% 30%, #555, #000); }
+.stone-preview.white { background: radial-gradient(circle at 35% 30%, #fff, #ccc); border: 1px solid #aaa; }
+.count-num {
+  font-size: 1.6rem; font-weight: bold;
+  color: #fff;
+  min-width: 2ch; text-align: center;
+}
+.vs-divider { font-size: 1.2rem; color: #7fffa0; }
+.turn-indicator {
+  font-size: 1rem;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  white-space: nowrap;
+}
+.turn-black { border-color: #aaa; color: #fff; }
+.turn-white { border-color: #ccc; color: #f0f0f0; }
+
+/* ===== ステータスバー ===== */
+.status-bar {
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 12px;
+  min-height: 2rem;
+  color: #7fffa0;
+}
+.status-bar .gameover  { color: #ffcc44; font-size: 1.4rem; font-weight: bold; text-shadow: 0 0 14px #ffcc4477; }
+.status-bar .mustpass  { color: #ff8844; }
+
+/* ===== ボード ===== */
+.board-wrap {
+  background: var(--green-dark);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 0 40px rgba(0,255,100,0.15), 0 8px 32px rgba(0,0,0,0.6);
+  border: 2px solid #3aad6266;
+}
+table { border-collapse: collapse; }
+td {
+  width: var(--cell-size); height: var(--cell-size);
+  background: var(--green-mid);
+  border: 1px solid var(--green-dark);
+  text-align: center; vertical-align: middle;
+  position: relative;
+}
+td::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ===== 石 ===== */
+.stone {
+  display: inline-block;
+  width: var(--stone-size); height: var(--stone-size);
+  border-radius: 50%;
+  transition: transform 0.1s;
+  position: relative;
+}
+.stone.black {
+  background: radial-gradient(circle at 35% 30%, #555 0%, #111 60%, #000 100%);
+  box-shadow: 2px 3px 10px rgba(0,0,0,0.7), inset -1px -2px 4px rgba(255,255,255,0.08);
+}
+.stone.white {
+  background: radial-gradient(circle at 35% 30%, #ffffff 0%, #e0e0e0 55%, #b0b0b0 100%);
+  border: 1px solid #aaa;
+  box-shadow: 2px 3px 10px rgba(0,0,0,0.4), inset -1px -2px 4px rgba(0,0,0,0.1);
+}
+
+/* フリップアニメーション */
+@keyframes flip-black-to-white {
+  0%   { transform: scaleX(1);  background: radial-gradient(circle at 35% 30%, #555 0%, #111 60%, #000 100%); }
+  50%  { transform: scaleX(0); }
+  100% { transform: scaleX(1);  background: radial-gradient(circle at 35% 30%, #fff 0%, #e0e0e0 55%, #b0b0b0 100%); }
+}
+@keyframes flip-white-to-black {
+  0%   { transform: scaleX(1);  background: radial-gradient(circle at 35% 30%, #fff 0%, #e0e0e0 55%, #b0b0b0 100%); }
+  50%  { transform: scaleX(0); }
+  100% { transform: scaleX(1);  background: radial-gradient(circle at 35% 30%, #555 0%, #111 60%, #000 100%); }
+}
+@keyframes place-stone {
+  0%   { transform: scale(0) translateY(-10px); opacity: 0; }
+  70%  { transform: scale(1.15) translateY(0); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.flip-to-white { animation: flip-black-to-white 0.4s ease forwards; }
+.flip-to-black { animation: flip-white-to-black 0.4s ease forwards; }
+.place-anim    { animation: place-stone 0.3s cubic-bezier(.36,.07,.19,.97) forwards; }
+
+/* ===== 着手可能マス ===== */
+.valid-btn {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: rgba(150, 255, 180, 0.35);
+  border: 2px solid rgba(150, 255, 180, 0.6);
+  cursor: pointer;
+  transition: all 0.15s;
+  box-shadow: 0 0 8px rgba(100,255,140,0.3);
+}
+.valid-btn:hover {
+  background: rgba(150, 255, 180, 0.7);
+  transform: scale(1.3);
+  box-shadow: 0 0 16px rgba(100,255,140,0.7);
+}
+
+/* 最後に置いたマスのマーカー */
+.last-move-marker {
+  position: absolute;
+  top: 4px; right: 4px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #ffff44;
+  box-shadow: 0 0 6px #ffff44;
+  pointer-events: none;
+}
+
+/* ===== コントロールパネル ===== */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+  justify-content: center;
+  max-width: 500px;
+}
+.btn {
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: bold;
+  transition: all 0.15s;
+  letter-spacing: 0.05em;
+}
+.btn-reset {
+  background: linear-gradient(135deg, #2d8a4e, #1a5c34);
+  color: #fff;
+  border: 1px solid #3aad62;
+}
+.btn-reset:hover { background: linear-gradient(135deg, #3aad62, #2d8a4e); transform: translateY(-1px); }
+.btn-undo {
+  background: linear-gradient(135deg, #5a4a00, #7a6a00);
+  color: #ffe44d;
+  border: 1px solid #ffe44d55;
+}
+.btn-undo:hover { background: linear-gradient(135deg, #7a6800, #a08800); transform: translateY(-1px); }
+.btn-pass {
+  background: linear-gradient(135deg, #8b0000, #b22222);
+  color: #fff;
+  border: 1px solid #ff666655;
+}
+.btn-pass:hover { background: linear-gradient(135deg, #b22222, #cc3333); }
+
+/* ===== 設定パネル ===== */
+.settings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.3);
+  border-radius: 12px;
+  padding: 12px 20px;
+  border: 1px solid #2d8a4e33;
+  max-width: 500px;
+  width: 100%;
+}
+.settings label { font-size: 0.9rem; color: #a0e0b0; }
+.settings select {
+  background: #1a3a2a;
+  color: #e8ffe8;
+  border: 1px solid #3aad6266;
+  border-radius: 8px;
+  padding: 4px 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.settings select:focus { outline: none; border-color: #7fffa0; }
+.toggle-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: #a0e0b0;
+  cursor: pointer;
+}
+input[type="checkbox"] { accent-color: #7fffa0; width: 16px; height: 16px; cursor: pointer; }
+
+/* ===== 履歴パネル ===== */
+.history-panel {
+  margin-top: 16px;
+  max-width: 500px;
+  width: 100%;
+  background: rgba(0,0,0,0.3);
+  border-radius: 12px;
+  border: 1px solid #2d8a4e33;
+  overflow: hidden;
+}
+.history-panel summary {
+  padding: 10px 16px;
+  cursor: pointer;
+  color: #a0e0b0;
+  font-size: 0.95rem;
+  user-select: none;
+}
+.history-panel summary:hover { color: #7fffa0; }
+.history-list {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 8px 16px;
+}
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  padding: 4px 0;
+  border-bottom: 1px solid #2d8a4e22;
+  color: #c0ddc0;
+}
+.history-item:last-child { border-bottom: none; }
+
+/* ===== ゲームオーバーオーバーレイ ===== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: fade-in 0.4s ease;
+}
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+.overlay-box {
+  background: linear-gradient(135deg, #0d1f16, #1a3a2a);
+  border: 2px solid #7fffa0;
+  border-radius: 20px;
+  padding: 40px 50px;
+  text-align: center;
+  box-shadow: 0 0 60px rgba(0,255,100,0.25);
+  animation: pop-in 0.4s cubic-bezier(.36,.07,.19,.97);
+}
+@keyframes pop-in {
+  0%   { transform: scale(0.7); opacity: 0; }
+  80%  { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.overlay-box h2 { font-size: 2rem; color: #7fffa0; margin-bottom: 12px; }
+.overlay-box .result { font-size: 1.5rem; color: #ffcc44; margin-bottom: 20px; font-weight: bold; }
+.overlay-box .final-score { font-size: 1.1rem; color: #c0ddc0; margin-bottom: 24px; }
+
+/* ===== AI思考中インジケーター ===== */
+@keyframes thinking {
+  0%, 100% { opacity: 0.3; }
+  50%       { opacity: 1; }
+}
+.ai-thinking {
+  display: none;
+  color: #7fffa0;
+  font-size: 0.95rem;
+  margin-top: 8px;
+  animation: thinking 1s ease-in-out infinite;
+}
+
+/* スクロールバー */
+.history-list::-webkit-scrollbar { width: 6px; }
+.history-list::-webkit-scrollbar-track { background: transparent; }
+.history-list::-webkit-scrollbar-thumb { background: #2d8a4e; border-radius: 3px; }
+</style>
+</head>
+<body>
+
+{{if $.GameOver}}
+<div class="overlay" id="overlay">
+  <div class="overlay-box">
+    <h2>ゲーム終了</h2>
+    <div class="result">
+      {{if $.Winner}}
+        🏆 {{$.Winner}}の勝利！
+      {{else}}
+        🤝 引き分け
+      {{end}}
+    </div>
+    <div class="final-score">⚫ 黒 {{$.KuroCount}} &nbsp;—&nbsp; {{$.ShiroCount}} 白 ⚪</div>
+    <a href="/game"><button class="btn btn-reset" style="font-size:1.1rem;padding:12px 32px;">もう一度プレイ</button></a>
+  </div>
+</div>
+{{end}}
+
+<h1>♟ オセロ</h1>
+
+<!-- スコアボード -->
+<div class="scoreboard">
+  <div class="score-item">
+    <div class="stone-preview black"></div>
+    <div class="count-num" id="kuro-cnt">{{$.KuroCount}}</div>
+    <div style="font-size:0.75rem;color:#a0e0b0;">黒</div>
+  </div>
+  <div class="vs-divider">vs</div>
+  <div class="score-item">
+    <div class="stone-preview white"></div>
+    <div class="count-num" id="shiro-cnt">{{$.ShiroCount}}</div>
+    <div style="font-size:0.75rem;color:#a0e0b0;">白</div>
+  </div>
+  {{if not $.GameOver}}
+  <div class="turn-indicator {{if eq $.Turn "黒"}}turn-black{{else}}turn-white{{end}}">
+    {{if eq $.Turn "黒"}}⚫{{else}}⚪{{end}} {{$.Turn}}の番
+  </div>
+  {{end}}
+</div>
+
+<!-- ステータス -->
+<div class="status-bar">
+  {{if $.GameOver}}
+    <span class="gameover">
+      {{if $.Winner}}🎉 {{$.Winner}}の勝ち！{{else}}🤝 引き分け{{end}}
+    </span>
+  {{else if $.MustPass}}
+    <span class="mustpass">⚠ {{$.Turn}}は置ける場所がありません → パスしてください</span>
+  {{else}}
+    {{if and (eq $.Mode "pvc") (eq $.Turn "白")}}
+      <span style="color:#7fffa0;">🤖 AI思考中…</span>
+    {{else}}
+      クリックして石を置いてください
+    {{end}}
+  {{end}}
+</div>
+
+<!-- メインフォーム -->
+<form action="/game" method="post" id="game-form">
+  <input type="hidden" name="turn"      value="{{$.Turn}}">
+  <input type="hidden" name="mode"      value="{{$.Mode}}">
+  <input type="hidden" name="ai_diff"   value="{{$.AIDiff}}">
+  <input type="hidden" name="hint_mode" value="{{if $.HintMode}}1{{else}}0{{end}}">
+  <input type="hidden" name="undo"      value="0" id="undo-input">
+  <input type="hidden" name="move"      value=""  id="move-input">
+
+  <!-- 盤面状態をすべてhiddenで保持 -->
+  {{range $row, $rows := $.Board}}
+    {{range $col, $cell := $rows}}
+      {{if ne $cell ""}}
+        <input type="hidden" name="c{{$row}}_{{$col}}" value="{{$cell}}">
+      {{end}}
+    {{end}}
+  {{end}}
+
+  <div class="board-wrap">
+    <table id="othello-board">
+      {{range $row, $rows := $.Board}}
+        <tr>
+          {{range $col, $cell := $rows}}
+            <td id="cell-{{$row}}-{{$col}}">
+              {{$key := printf "%d_%d" $row $col}}
+
+              {{if eq $cell "黒"}}
+                <span class="stone black {{if eq $.LastMove $key}}place-anim{{end}}" id="stone-{{$row}}-{{$col}}"></span>
+                {{if eq $.LastMove $key}}<div class="last-move-marker"></div>{{end}}
+              {{else if eq $cell "白"}}
+                <span class="stone white {{if eq $.LastMove $key}}place-anim{{end}}" id="stone-{{$row}}-{{$col}}"></span>
+                {{if eq $.LastMove $key}}<div class="last-move-marker"></div>{{end}}
+              {{else if index $.ValidMoves $key}}
+                {{if or $.HintMode (not (and (eq $.Mode "pvc") (eq $.Turn "白")))}}
+                  <button type="button" class="valid-btn" onclick="submitMove('{{$key}}')" title="{{$row}}行{{$col}}列に置く"></button>
+                {{end}}
+              {{end}}
+            </td>
+          {{end}}
+        </tr>
+      {{end}}
+    </table>
+  </div>
+
+  <!-- コントロール -->
+  <div class="controls">
+    {{if $.MustPass}}
+      <button type="button" class="btn btn-pass" onclick="submitMove('pass')">パス</button>
+    {{end}}
+    {{if and (not $.GameOver) (gt (len $.History) 0)}}
+      <button type="button" class="btn btn-undo" onclick="submitUndo()">↩ Undo</button>
+    {{end}}
+  </div>
+</form>
+
+<!-- 設定パネル -->
+<div class="settings">
+  <form action="/game" method="get" style="display:contents;">
+    <label>モード:
+      <select name="mode" onchange="this.form.submit()">
+        <option value="pvp" {{if eq $.Mode "pvp"}}selected{{end}}>対人 (PvP)</option>
+        <option value="pvc" {{if eq $.Mode "pvc"}}selected{{end}}>AI対戦 (PvC)</option>
+      </select>
+    </label>
+    <label>AI強さ:
+      <select name="ai_diff" {{if eq $.Mode "pvp"}}disabled{{end}} onchange="this.form.submit()">
+        <option value="easy"   {{if eq $.AIDiff "easy"}}selected{{end}}>弱い</option>
+        <option value="normal" {{if eq $.AIDiff "normal"}}selected{{end}}>普通</option>
+        <option value="hard"   {{if eq $.AIDiff "hard"}}selected{{end}}>強い</option>
+      </select>
+    </label>
+    <label class="toggle-hint">
+      <input type="checkbox" name="hint_mode" value="on"
+        {{if $.HintMode}}checked{{end}} onchange="this.form.submit()">
+      ヒント表示
+    </label>
+    <input type="hidden" name="mode"    value="{{$.Mode}}">
+    <input type="hidden" name="ai_diff" value="{{$.AIDiff}}">
+    <button type="submit" class="btn btn-reset" name="reset" value="1">🔄 リセット</button>
+  </form>
+</div>
+
+<!-- 着手履歴 -->
+{{if gt (len $.History) 0}}
+<details class="history-panel">
+  <summary>📋 着手履歴 ({{len $.History}}手)</summary>
+  <div class="history-list">
+    {{range $i, $snap := $.History}}
+      <div class="history-item">
+        <span>第{{add1 $i}}手 — {{$snap.Turn}}の手番前</span>
+        <span>⚫{{$snap.KuroCount}} ⚪{{$snap.ShiroCount}}</span>
+      </div>
+    {{end}}
+  </div>
+</details>
+{{end}}
+
+<script>
+// フリップアニメーション対象セル
+const flipped = {{$.FlippedJSON}};
+const lastMove = "{{$.LastMove}}";
+const currentTurn = "{{$.Turn}}";
+
+// 着手後に相手色へのフリップアニメを適用
+if (flipped && flipped.length > 0) {
+  // 直前手番は現在turnの反対
+  const prevTurn = currentTurn === "黒" ? "白" : "黒";
+  const flipClass = prevTurn === "黒" ? "flip-to-white" : "flip-to-black";
+
+  flipped.forEach((key, idx) => {
+    const [r, c] = key.split("_");
+    const stone = document.getElementById("stone-" + r + "-" + c);
+    if (stone) {
+      stone.style.animationDelay = (idx * 30) + "ms";
+      stone.classList.add(flipClass);
+    }
+  });
+}
+
+// AI対戦時に思考中演出（画面遷移前）
+function submitMove(val) {
+  document.getElementById("move-input").value = val;
+  document.getElementById("undo-input").value = "0";
+  document.getElementById("game-form").submit();
+}
+
+function submitUndo() {
+  document.getElementById("undo-input").value = "1";
+  document.getElementById("move-input").value = "";
+  document.getElementById("game-form").submit();
+}
+
+// Web Audio API でクリック音
+function playClick() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(600, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(200, ctx.currentTime + 0.12);
+    gain.gain.setValueAtTime(0.15, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.15);
+  } catch(e) {}
+}
+
+// ボタンクリック時に音を鳴らす
+document.querySelectorAll(".valid-btn").forEach(btn => {
+  btn.addEventListener("click", playClick);
+});
+
+// ゲームオーバー時の効果音
+{{if $.GameOver}}
+(function() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const freqs = [523, 659, 784, 1047];
+    freqs.forEach((f, i) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain); gain.connect(ctx.destination);
+      osc.frequency.value = f;
+      gain.gain.setValueAtTime(0, ctx.currentTime + i*0.15);
+      gain.gain.linearRampToValueAtTime(0.12, ctx.currentTime + i*0.15 + 0.05);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + i*0.15 + 0.3);
+      osc.start(ctx.currentTime + i*0.15);
+      osc.stop(ctx.currentTime + i*0.15 + 0.35);
+    });
+  } catch(e) {}
+})();
+{{end}}
+</script>
+</body>
+</html>

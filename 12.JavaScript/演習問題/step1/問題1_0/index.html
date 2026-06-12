@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <p style="text-align: center;">デジタル時計</p>
+        <h3 id="now-yymmdd" style="text-align: center;"></h3>
+        <h1 id="now-hhmmss" style="text-align: center;"></h1>
+    </main>
+    <style>
+        main{
+            margin: 0 auto;
+        }
+
+        h3, h1{
+            color: blue;
+        }
+    </style>
+    <script>
+        const date = new Date();
+        const yymmdd = document.getElementById('now-yymmdd');
+        const hhmmss = document.getElementById('now-hhmmss');
+        const week = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
+
+        yymmdd.textContent = `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()} ${week[date.getDay()-1]}`
+        hhmmss.textContent = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+    </script>
+</body>
+</html>

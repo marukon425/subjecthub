@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>将棋</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body {
+  font-family: 'Noto Serif JP', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #1a0e06;
+}
+
+/* 和室の部屋全体 */
+.room {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255,200,80,0.15) 0%, transparent 60%),
+    linear-gradient(180deg,
+      #2b1a0a 0%,
+      #1e1208 40%,
+      #2a1a10 70%,
+      #3a2818 100%);
+}
+
+/* 天井の梁 */
+.room::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 80px;
+  background: linear-gradient(180deg, #0d0804 0%, #1a0e06 100%);
+  border-bottom: 4px solid #3d2410;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+}
+
+/* 行燈(あんどん) - 左 */
+.andon-left {
+  position: fixed;
+  left: 40px;
+  top: 100px;
+  width: 70px;
+  height: 140px;
+}
+.andon-left .body {
+  width: 60px;
+  height: 110px;
+  margin: 0 auto;
+  background: rgba(255,220,130,0.15);
+  border: 2px solid #8b6914;
+  border-radius: 4px;
+  box-shadow:
+    0 0 30px rgba(255,180,50,0.4),
+    0 0 60px rgba(255,160,30,0.2),
+    inset 0 0 20px rgba(255,200,100,0.3);
+  animation: flicker 3s ease-in-out infinite;
+}
+.andon-left .stand {
+  width: 4px;
+  height: 30px;
+  background: #5c3a1a;
+  margin: 0 auto;
+}
+.andon-left .base {
+  width: 40px;
+  height: 8px;
+  background: #5c3a1a;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+/* 行燈 - 右 */
+.andon-right {
+  position: fixed;
+  right: 40px;
+  top: 100px;
+  width: 70px;
+  height: 140px;
+}
+.andon-right .body {
+  width: 60px;
+  height: 110px;
+  margin: 0 auto;
+  background: rgba(255,220,130,0.15);
+  border: 2px solid #8b6914;
+  border-radius: 4px;
+  box-shadow:
+    0 0 30px rgba(255,180,50,0.4),
+    0 0 60px rgba(255,160,30,0.2),
+    inset 0 0 20px rgba(255,200,100,0.3);
+  animation: flicker 3s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+.andon-right .stand { width: 4px; height: 30px; background: #5c3a1a; margin: 0 auto; }
+.andon-right .base { width: 40px; height: 8px; background: #5c3a1a; margin: 0 auto; border-radius: 4px; }
+
+@keyframes flicker {
+  0%,100%{opacity:1;} 50%{opacity:0.85;} 25%,75%{opacity:0.95;}
+}
+
+/* 障子(しょうじ) - 背景 */
+.shoji {
+  position: fixed;
+  top: 80px;
+  left: 0; right: 0;
+  height: 35vh;
+  background: rgba(255,245,220,0.06);
+  border-top: 3px solid #5c3a1a;
+  border-bottom: 3px solid #5c3a1a;
+  overflow: hidden;
+}
+.shoji::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(120,80,30,0.3) 0px, rgba(120,80,30,0.3) 2px, transparent 2px, transparent 60px),
+    repeating-linear-gradient(0deg, rgba(120,80,30,0.3) 0px, rgba(120,80,30,0.3) 2px, transparent 2px, transparent 40px);
+}
+
+/* 畳(たたみ) の床 */
+.tatami {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 45vh;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(60,90,30,0.15) 0px,
+      rgba(60,90,30,0.15) 1px,
+      transparent 1px,
+      transparent 180px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(60,90,30,0.15) 0px,
+      rgba(60,90,30,0.15) 1px,
+      transparent 1px,
+      transparent 120px
+    ),
+    linear-gradient(180deg, #2a3a18 0%, #1e2e12 100%);
+  border-top: 4px solid #3d5520;
+}
+/* 畳の縁(へり) */
+.tatami::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 12px;
+  background: repeating-linear-gradient(90deg,
+    #1a2a0a 0px, #1a2a0a 20px,
+    #2a3a18 20px, #2a3a18 40px
+  );
+}
+
+/* メインレイアウト */
+.main-layout {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  padding: 90px 20px 20px;
+  min-height: 100vh;
+}
+
+/* 将棋台 */
+.shogi-table {
+  background: linear-gradient(180deg, #6b4423 0%, #4a2e14 50%, #5a3a1e 100%);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.8),
+    0 0 0 3px #8b6030,
+    0 0 0 6px #5a3a1e,
+    inset 0 2px 4px rgba(255,200,100,0.1);
+  position: relative;
+}
+.shogi-table::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(180,130,60,0.3);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+/* 将棋盤 */
+.board-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* 行ラベル（一〜九） */
+.row-labels {
+  display: flex;
+  flex-direction: column;
+  margin-left: 6px;
+}
+.row-label {
+  height: 56px;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: #c8a060;
+  font-weight: bold;
+}
+
+/* 盤面コンテナ */
+.board-container {
+  position: relative;
+}
+
+/* 列ラベル（9〜1） */
+.col-labels {
+  display: flex;
+  margin-bottom: 4px;
+  padding-left: 0;
+}
+.col-label {
+  width: 56px;
+  text-align: center;
+  font-size: 11px;
+  color: #c8a060;
+  font-weight: bold;
+}
+
+/* 盤 */
+.board {
+  display: grid;
+  grid-template-columns: repeat(9, 56px);
+  grid-template-rows: repeat(9, 56px);
+  border: 3px solid #3d2008;
+  box-shadow:
+    0 0 0 1px #6b4010,
+    inset 0 0 20px rgba(180,120,40,0.1);
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(80,45,10,0.5) 0px,
+      rgba(80,45,10,0.5) 1px,
+      transparent 1px,
+      transparent 56px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(80,45,10,0.5) 0px,
+      rgba(80,45,10,0.5) 1px,
+      transparent 1px,
+      transparent 56px
+    ),
+    linear-gradient(145deg,
+      #d4a040 0%, #c89030 15%,
+      #d4a848 25%, #c08020 40%,
+      #d8ac50 55%, #c49030 70%,
+      #d0a038 85%, #b87828 100%
+    );
+  position: relative;
+}
+
+/* 星の目 */
+.board::before {
+  content: '';
+  position: absolute;
+  width: 8px; height: 8px;
+  background: #3d2008;
+  border-radius: 50%;
+  top: calc(56px * 3 - 4px);
+  left: calc(56px * 3 - 4px);
+  box-shadow:
+    calc(56px * 3) 0 0 #3d2008,
+    0 calc(56px * 3) 0 #3d2008,
+    calc(56px * 3) calc(56px * 3) 0 #3d2008;
+}
+
+/* マス */
+.cell {
+  width: 56px;
+  height: 56px;
+  border: 1px solid rgba(80,45,10,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.15s;
+}
+.cell:hover {
+  background: rgba(255,220,100,0.15);
+}
+.cell.selected {
+  background: rgba(255,200,50,0.35) !important;
+  box-shadow: inset 0 0 0 2px rgba(255,200,50,0.8);
+}
+.cell.legal-move {
+  background: rgba(100,200,100,0.2) !important;
+  cursor: pointer;
+}
+.cell.legal-move::after {
+  content: '';
+  position: absolute;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: rgba(80,180,80,0.5);
+  border: 2px solid rgba(80,200,80,0.8);
+}
+.cell.legal-move.has-piece::after {
+  width: 48px; height: 48px;
+  background: rgba(200,80,80,0.2);
+  border: 2px solid rgba(220,80,80,0.8);
+  border-radius: 0;
+}
+.cell.check-king {
+  background: rgba(255,50,50,0.3) !important;
+  animation: checkPulse 0.8s ease-in-out infinite;
+}
+@keyframes checkPulse {
+  0%,100%{background:rgba(255,50,50,0.3)!important;}
+  50%{background:rgba(255,50,50,0.5)!important;}
+}
+
+/* 駒 */
+.piece {
+  width: 48px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  user-select: none;
+  transition: transform 0.1s, filter 0.1s;
+}
+.piece:hover { transform: scale(1.05); }
+
+/* 駒の形（五角形）SVG背景 */
+.piece-shape {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 100%, 0% 100%, 0% 25%);
+}
+
+/* 先手駒（下側・明るい木） */
+.piece[data-owner="0"] .piece-shape {
+  background: linear-gradient(180deg,
+    #f5e8c0 0%, #e8d090 30%,
+    #d4b860 60%, #c8a040 100%);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+.piece[data-owner="0"] .piece-shape::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  clip-path: polygon(50% 8%, 95% 30%, 95% 95%, 5% 95%, 5% 30%);
+  border: 1px solid rgba(180,130,40,0.6);
+  border-radius: 1px;
+}
+
+/* 後手駒（上側・暗い、180度回転） */
+.piece[data-owner="1"] {
+  transform: rotate(180deg);
+}
+.piece[data-owner="1"] .piece-shape {
+  background: linear-gradient(180deg,
+    #4a3010 0%, #3a2408 30%,
+    #2e1c04 60%, #251800 100%);
+}
+.piece[data-owner="1"]:hover { transform: rotate(180deg) scale(1.05); }
+
+/* 駒文字 */
+.piece-text {
+  position: relative;
+  z-index: 2;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1;
+  margin-top: 6px;
+  pointer-events: none;
+}
+.piece[data-owner="0"] .piece-text { color: #1a0a00; }
+.piece[data-owner="1"] .piece-text {
+  color: #e8d090;
+  transform: rotate(180deg);
+}
+/* 成り駒は赤字 */
+.piece.promoted .piece-text { color: #cc2200 !important; }
+.piece[data-owner="1"].promoted .piece-text { color: #ff8866 !important; }
+
+/* サイドパネル */
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 160px;
+}
+
+/* 持ち駒エリア */
+.hand-area {
+  background: linear-gradient(180deg, #3a2208 0%, #2a1804 100%);
+  border: 2px solid #6b4010;
+  border-radius: 6px;
+  padding: 10px;
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.5),
+    inset 0 1px 2px rgba(255,200,100,0.1);
+}
+.hand-title {
+  font-size: 12px;
+  color: #c8a060;
+  text-align: center;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #5a3808;
+  letter-spacing: 2px;
+}
+.hand-pieces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  min-height: 40px;
+}
+.hand-piece {
+  width: 42px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  border: 1px solid rgba(180,130,60,0.3);
+  border-radius: 3px;
+  transition: background 0.15s;
+}
+.hand-piece:hover, .hand-piece.selected {
+  background: rgba(255,200,50,0.25);
+  border-color: rgba(255,200,50,0.6);
+}
+.hand-piece .piece {
+  width: 36px;
+  height: 38px;
+}
+.hand-piece .piece .piece-text { font-size: 13px; }
+.hand-count {
+  position: absolute;
+  bottom: 1px;
+  right: 3px;
+  font-size: 10px;
+  color: #c8a060;
+  font-weight: bold;
+}
+
+/* 情報パネル */
+.info-panel {
+  background: linear-gradient(180deg, #3a2208 0%, #2a1804 100%);
+  border: 2px solid #6b4010;
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+.turn-display {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.turn-label {
+  font-size: 11px;
+  color: #8b6030;
+  letter-spacing: 2px;
+}
+.turn-value {
+  font-size: 20px;
+  font-weight: bold;
+  color: #f0d880;
+  text-shadow: 0 0 10px rgba(240,200,80,0.5);
+  margin-top: 4px;
+}
+.message-area {
+  text-align: center;
+  min-height: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ff6644;
+  text-shadow: 0 0 8px rgba(255,100,60,0.6);
+  margin-bottom: 8px;
+}
+
+/* ボタン */
+.btn {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 6px;
+  background: linear-gradient(180deg, #6b4010 0%, #4a2c08 100%);
+  border: 1px solid #8b6030;
+  border-radius: 4px;
+  color: #e8d090;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all 0.15s;
+}
+.btn:hover {
+  background: linear-gradient(180deg, #8b5418 0%, #6b3c0e 100%);
+  box-shadow: 0 0 8px rgba(200,150,60,0.4);
+}
+.btn.mode-active {
+  background: linear-gradient(180deg, #8b6020 0%, #6b4410 100%);
+  border-color: #d4a040;
+  box-shadow: 0 0 8px rgba(200,150,60,0.5);
+}
+
+/* 成り選択ダイアログ */
+.promote-dialog {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+.promote-dialog.show { display: flex; }
+.promote-box {
+  background: linear-gradient(180deg, #4a2e10 0%, #2e1808 100%);
+  border: 3px solid #8b6020;
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+}
+.promote-box h3 {
+  color: #e8d090;
+  font-size: 18px;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+}
+.promote-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+.promote-btn {
+  padding: 12px 24px;
+  background: linear-gradient(180deg, #8b5418 0%, #5a3010 100%);
+  border: 2px solid #c8a040;
+  border-radius: 6px;
+  color: #f0d880;
+  font-family: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: all 0.15s;
+}
+.promote-btn:hover {
+  background: linear-gradient(180deg, #a86428 0%, #7a4018 100%);
+  box-shadow: 0 0 12px rgba(200,160,60,0.5);
+}
+
+/* ゲームオーバー */
+.gameover-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+.gameover-overlay.show { display: flex; }
+.gameover-box {
+  background: linear-gradient(180deg, #4a2e10 0%, #1e0e04 100%);
+  border: 3px solid #c8a040;
+  border-radius: 10px;
+  padding: 40px 60px;
+  text-align: center;
+  box-shadow:
+    0 0 0 6px rgba(200,160,60,0.2),
+    0 20px 60px rgba(0,0,0,0.9);
+}
+.gameover-title {
+  font-size: 36px;
+  color: #f0d880;
+  text-shadow: 0 0 20px rgba(240,200,80,0.6);
+  margin-bottom: 12px;
+  letter-spacing: 4px;
+}
+.gameover-winner {
+  font-size: 24px;
+  color: #ffaa44;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+</style>
+</head>
+<body>
+
+<div class="room"></div>
+
+<!-- 行燈 -->
+<div class="andon-left">
+  <div class="body"></div>
+  <div class="stand"></div>
+  <div class="base"></div>
+</div>
+<div class="andon-right">
+  <div class="body"></div>
+  <div class="stand"></div>
+  <div class="base"></div>
+</div>
+
+<div class="shoji"></div>
+<div class="tatami"></div>
+
+<!-- メインレイアウト -->
+<div class="main-layout">
+
+  <!-- 左パネル：後手の情報 -->
+  <div class="side-panel">
+    <div class="hand-area">
+      <div class="hand-title">後 手 の 持 ち 駒</div>
+      <div class="hand-pieces" id="hand1"></div>
+    </div>
+    <div class="info-panel">
+      <div class="turn-display">
+        <div class="turn-label">手 番</div>
+        <div class="turn-value" id="turnDisplay">先手</div>
+      </div>
+      <div class="message-area" id="messageArea"></div>
+      <button class="btn" id="btnPvC">人 vs CPU</button>
+      <button class="btn" id="btnPvP">人 vs 人</button>
+      <button class="btn" id="btnReset">最 初 か ら</button>
+    </div>
+  </div>
+
+  <!-- 将棋台 -->
+  <div class="shogi-table">
+    <div class="board-container">
+      <div class="col-labels" id="colLabels"></div>
+      <div class="board-wrap">
+        <div class="board" id="board"></div>
+        <div class="row-labels" id="rowLabels"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 右パネル：先手の情報 -->
+  <div class="side-panel">
+    <div class="hand-area">
+      <div class="hand-title">先 手 の 持 ち 駒</div>
+      <div class="hand-pieces" id="hand0"></div>
+    </div>
+    <div class="info-panel" style="margin-top:auto;">
+      <div style="text-align:center; color:#8b6030; font-size:11px; letter-spacing:2px; line-height:2;">
+        <div>将</div>
+        <div>棋</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 成りダイアログ -->
+<div class="promote-dialog" id="promoteDialog">
+  <div class="promote-box">
+    <h3>成りますか？</h3>
+    <div class="promote-buttons">
+      <button class="promote-btn" id="btnPromoteYes">成る</button>
+      <button class="promote-btn" id="btnPromoteNo">成らない</button>
+    </div>
+  </div>
+</div>
+
+<!-- ゲームオーバー -->
+<div class="gameover-overlay" id="gameoverOverlay">
+  <div class="gameover-box">
+    <div class="gameover-title">詰　み</div>
+    <div class="gameover-winner" id="gameoverWinner"></div>
+    <button class="promote-btn" onclick="resetGame()">もう一局</button>
+  </div>
+</div>
+
+<script>
+const PIECE_NAMES = {
+  FU:'歩', KY:'香', KE:'桂', GI:'銀', KI:'金', KA:'角', HI:'飛', OU:'王'
+};
+const PROMOTED_NAMES = {
+  FU:'と', KY:'杏', KE:'圭', GI:'全', KA:'馬', HI:'龍'
+};
+const COL_LABELS = ['９','８','７','６','５','４','３','２','１'];
+const ROW_LABELS = ['一','二','三','四','五','六','七','八','九'];
+
+let state = null;
+let selectedCell = null;   // {row, col} or null
+let selectedDrop = null;   // {piece, owner} or null
+let legalMoves = [];
+let pendingMove = null;    // 成り確認待ちの手
+
+// ラベル生成
+function buildLabels() {
+  const colLabels = document.getElementById('colLabels');
+  COL_LABELS.forEach(l => {
+    const d = document.createElement('div');
+    d.className = 'col-label';
+    d.textContent = l;
+    colLabels.appendChild(d);
+  });
+  const rowLabels = document.getElementById('rowLabels');
+  ROW_LABELS.forEach(l => {
+    const d = document.createElement('div');
+    d.className = 'row-label';
+    d.textContent = l;
+    rowLabels.appendChild(d);
+  });
+}
+
+function getPieceText(p) {
+  if (!p) return '';
+  if (p.promoted) return PROMOTED_NAMES[p.type] || p.type;
+  return PIECE_NAMES[p.type] || p.type;
+}
+
+function renderPiece(p, small=false) {
+  if (!p) return '';
+  const txt = getPieceText(p);
+  const promotedClass = p.promoted ? ' promoted' : '';
+  const sz = small ? 'width:36px;height:38px;' : '';
+  return `<div class="piece${promotedClass}" data-owner="${p.owner}" style="${sz}">
+    <div class="piece-shape"></div>
+    <span class="piece-text">${txt}</span>
+  </div>`;
+}
+
+function renderBoard() {
+  if (!state) return;
+  const board = document.getElementById('board');
+  board.innerHTML = '';
+
+  const isInCheck = state.check;
+  let kingCheckCell = null;
+  if (isInCheck) {
+    // 手番の王に王手がかかっている
+    for (let r = 0; r < 9; r++) {
+      for (let c = 0; c < 9; c++) {
+        const p = state.board[r][c];
+        if (p && p.type === 'OU' && p.owner === state.turn) {
+          kingCheckCell = `${r}-${c}`;
+        }
+      }
+    }
+  }
+
+  for (let r = 0; r < 9; r++) {
+    for (let c = 0; c < 9; c++) {
+      const cell = document.createElement('div');
+      cell.className = 'cell';
+      cell.dataset.row = r;
+      cell.dataset.col = c;
+
+      const p = state.board[r][c];
+      const key = `${r}-${c}`;
+
+      if (selectedCell && selectedCell.row === r && selectedCell.col === c) {
+        cell.classList.add('selected');
+      }
+      if (kingCheckCell === key) {
+        cell.classList.add('check-king');
+      }
+
+      const isLegal = legalMoves.some(m => m[0] === r && m[1] === c);
+      if (isLegal) {
+        cell.classList.add('legal-move');
+        if (p) cell.classList.add('has-piece');
+      }
+
+      if (p) {
+        cell.innerHTML = renderPiece(p);
+      }
+
+      cell.addEventListener('click', () => onCellClick(r, c));
+      board.appendChild(cell);
+    }
+  }
+}
+
+function renderHands() {
+  for (let owner = 0; owner < 2; owner++) {
+    const el = document.getElementById(`hand${owner}`);
+    el.innerHTML = '';
+    const hand = state.hand[owner];
+    const order = ['HI','KA','KI','GI','KE','KY','FU'];
+    order.forEach(pt => {
+      const cnt = hand[pt] || 0;
+      if (cnt <= 0) return;
+      const div = document.createElement('div');
+      div.className = 'hand-piece';
+      if (selectedDrop && selectedDrop.piece === pt && selectedDrop.owner === owner) {
+        div.classList.add('selected');
+      }
+      div.innerHTML = renderPiece({type:pt, owner, promoted:false}, true) +
+        `<span class="hand-count">${cnt > 1 ? cnt : ''}</span>`;
+      div.addEventListener('click', () => onHandClick(pt, owner));
+      el.appendChild(div);
+    });
+  }
+}
+
+function renderInfo() {
+  const turnNames = ['先手', '後手'];
+  document.getElementById('turnDisplay').textContent = state.gameOver ? '終局' : turnNames[state.turn];
+  document.getElementById('messageArea').textContent = state.message || '';
+}
+
+function render() {
+  renderBoard();
+  renderHands();
+  renderInfo();
+  if (state.gameOver) {
+    const w = state.winner === 0 ? '先手の勝ち！' : '後手の勝ち！';
+    document.getElementById('gameoverWinner').textContent = w;
+    document.getElementById('gameoverOverlay').classList.add('show');
+  }
+}
+
+async function fetchState() {
+  const res = await fetch('/state');
+  state = await res.json();
+  render();
+}
+
+function clearSelection() {
+  selectedCell = null;
+  selectedDrop = null;
+  legalMoves = [];
+}
+
+async function onCellClick(row, col) {
+  if (!state || state.gameOver) return;
+  // 打ち駒モード
+  if (selectedDrop) {
+    if (legalMoves.some(m => m[0] === row && m[1] === col)) {
+      await sendMove({
+        fromRow: selectedDrop.owner,
+        fromCol: 0,
+        toRow: row,
+        toCol: col,
+        drop: true,
+        piece: selectedDrop.piece,
+        promote: false
+      });
+      clearSelection();
+    } else {
+      clearSelection();
+      renderBoard();
+    }
+    return;
+  }
+
+  const p = state.board[row][col];
+
+  // 移動先を選択
+  if (selectedCell) {
+    if (legalMoves.some(m => m[0] === row && m[1] === col)) {
+      const fromP = state.board[selectedCell.row][selectedCell.col];
+      const canProm = canPromoteCheck(fromP, selectedCell.row, row);
+      const mustProm = mustPromoteCheck(fromP, row);
+      if (canProm && !mustProm) {
+        pendingMove = {
+          fromRow: selectedCell.row, fromCol: selectedCell.col,
+          toRow: row, toCol: col, drop: false
+        };
+        document.getElementById('promoteDialog').classList.add('show');
+      } else {
+        await sendMove({
+          fromRow: selectedCell.row, fromCol: selectedCell.col,
+          toRow: row, toCol: col, drop: false, promote: mustProm
+        });
+        clearSelection();
+      }
+      return;
+    }
+    // 同じ駒をクリック→選択解除
+    if (selectedCell.row === row && selectedCell.col === col) {
+      clearSelection();
+      renderBoard();
+      return;
+    }
+  }
+
+  // 自分の駒を選択
+  if (p && p.owner === state.turn) {
+    clearSelection();
+    selectedCell = {row, col};
+    const res = await fetch('/legal', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({row, col})
+    });
+    legalMoves = await res.json() || [];
+    renderBoard();
+    renderHands();
+  } else {
+    clearSelection();
+    renderBoard();
+  }
+}
+
+async function onHandClick(piece, owner) {
+  if (!state || state.gameOver) return;
+  if (state.turn !== owner) return;
+  if (state.mode === 'pvc' && owner === 1) return;
+
+  clearSelection();
+  selectedDrop = {piece, owner};
+  const res = await fetch('/drop', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({piece, owner})
+  });
+  legalMoves = await res.json() || [];
+  renderBoard();
+  renderHands();
+}
+
+function canPromoteCheck(p, fromRow, toRow) {
+  if (!p || p.promoted || p.type === 'KI' || p.type === 'OU') return false;
+  if (p.owner === 0) return fromRow <= 2 || toRow <= 2;
+  return fromRow >= 6 || toRow >= 6;
+}
+function mustPromoteCheck(p, toRow) {
+  if (!p || p.promoted) return false;
+  if (p.owner === 0) {
+    if (p.type === 'FU' || p.type === 'KY') return toRow === 0;
+    if (p.type === 'KE') return toRow <= 1;
+  } else {
+    if (p.type === 'FU' || p.type === 'KY') return toRow === 8;
+    if (p.type === 'KE') return toRow >= 7;
+  }
+  return false;
+}
+
+document.getElementById('btnPromoteYes').addEventListener('click', async () => {
+  document.getElementById('promoteDialog').classList.remove('show');
+  if (!pendingMove) return;
+  await sendMove({...pendingMove, promote: true});
+  pendingMove = null;
+  clearSelection();
+});
+document.getElementById('btnPromoteNo').addEventListener('click', async () => {
+  document.getElementById('promoteDialog').classList.remove('show');
+  if (!pendingMove) return;
+  await sendMove({...pendingMove, promote: false});
+  pendingMove = null;
+  clearSelection();
+});
+
+async function sendMove(move) {
+  const res = await fetch('/move', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify(move)
+  });
+  state = await res.json();
+  clearSelection();
+  render();
+}
+
+async function resetGame() {
+  document.getElementById('gameoverOverlay').classList.remove('show');
+  const mode = state ? state.mode : 'pvc';
+  const res = await fetch('/reset', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({mode})
+  });
+  state = await res.json();
+  clearSelection();
+  render();
+}
+
+document.getElementById('btnReset').addEventListener('click', resetGame);
+document.getElementById('btnPvC').addEventListener('click', async () => {
+  document.getElementById('gameoverOverlay').classList.remove('show');
+  const res = await fetch('/reset', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({mode:'pvc'})
+  });
+  state = await res.json();
+  clearSelection();
+  render();
+  document.getElementById('btnPvC').classList.add('mode-active');
+  document.getElementById('btnPvP').classList.remove('mode-active');
+});
+document.getElementById('btnPvP').addEventListener('click', async () => {
+  document.getElementById('gameoverOverlay').classList.remove('show');
+  const res = await fetch('/reset', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({mode:'pvp'})
+  });
+  state = await res.json();
+  clearSelection();
+  render();
+  document.getElementById('btnPvP').classList.add('mode-active');
+  document.getElementById('btnPvC').classList.remove('mode-active');
+});
+
+buildLabels();
+fetchState();
+</script>
+</body>
+</html>

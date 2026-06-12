@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Clock</title>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            background: #010308;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Courier New', Courier, monospace;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        #bgCanvas {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .label {
+            font-size: 11px;
+            letter-spacing: 10px;
+            color: rgba(0, 200, 255, 0.45);
+            text-transform: uppercase;
+        }
+
+        .digital {
+            font-size: 70px;
+            font-weight: 100;
+            letter-spacing: 8px;
+            color: #00e5ff;
+            text-shadow: 0 0 8px #00e5ff, 0 0 22px #00e5ff, 0 0 45px rgba(0,229,255,0.45);
+        }
+
+        .colon {
+            display: inline-block;
+            transition: opacity 0.08s;
+        }
+
+        .date {
+            font-size: 20px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: rgba(255,255,255,0.75);
+        }
+
+        .world-row {
+            display: flex;
+            align-items: center;
+        }
+
+        .wc {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            padding: 0 24px;
+        }
+
+        .wc + .wc {
+            border-left: 1px solid rgba(0,229,255,0.13);
+        }
+
+        .wc-city {
+            font-size: 9px;
+            letter-spacing: 3px;
+            color: rgba(0,229,255,0.45);
+            text-transform: uppercase;
+        }
+
+        .wc-time {
+            font-size: 20px;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.55);
+        }
+
+        .unix {
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.13);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="bgCanvas"></canvas>
+
+    <div class="container">
+        <div class="label">— SUPER CLOCK —</div>
+        <canvas id="analogClock" width="400" height="400"></canvas>
+        <div class="digital">
+            <span id="dh">00</span><span class="colon" id="col1">:</span><span id="dm">00</span><span class="colon" id="col2">:</span><span id="ds">00</span>
+        </div>
+        <div class="date" id="dateEl"></div>
+        <div class="world-row">
+            <div class="wc"><div class="wc-city">東京</div><div class="wc-time" id="wc-tok"></div></div>
+            <div class="wc"><div class="wc-city">NY</div><div class="wc-time" id="wc-ny"></div></div>
+            <div class="wc"><div class="wc-city">London</div><div class="wc-time" id="wc-lon"></div></div>
+            <div class="wc"><div class="wc-city">Sydney</div><div class="wc-time" id="wc-syd"></div></div>
+        </div>
+        <div class="unix" id="unixEl"></div>
+    </div>
+
+    <script>
+    class Clock {
+        constructor() {
+            this.canvas   = document.getElementById('analogClock');
+            this.ctx      = this.canvas.getContext('2d');
+            this.bgCanvas = document.getElementById('bgCanvas');
+            this.bgCtx    = this.bgCanvas.getContext('2d');
+            this.stars    = [];
+            this.shooting = [];
+            this.nextShot = 0;
+        }
+
+        init() {
+            this.resize();
+            window.addEventListener('resize', () => this.resize());
+            this.animate();
+        }
+
+        resize() {
+            this.bgCanvas.width  = window.innerWidth;
+            this.bgCanvas.height = window.innerHeight;
+            const count = Math.min(300, Math.floor(window.innerWidth * window.innerHeight / 4000));
+            this.stars = Array.from({ length: count }, () => ({
+                x:     Math.random() * window.innerWidth,
+                y:     Math.random() * window.innerHeight,
+                r:     Math.random() * 1.4 + 0.2,
+                phase: Math.random() * Math.PI * 2,
+                spd:   Math.random() * 0.8 + 0.3,
+            }));
+        }
+
+        bgColors(h) {
+            if (h >= 4  && h < 7)  return ['#0d0025', '#4a1040', '#b85030']; // 夜明け
+            if (h >= 7  && h < 11) return ['#080f2e', '#152450', '#1e4080']; // 朝
+            if (h >= 11 && h < 17) return ['#050d20', '#0a1830', '#102245']; // 昼
+            if (h >= 17 && h < 20) return ['#150325', '#7a1535', '#d04520']; // 夕暮れ
+            return ['#010206', '#02060f', '#040c18'];                          // 夜
+        }
+
+        drawBg(now, t) {
+            const ctx = this.bgCtx;
+            const w = this.bgCanvas.width;
+            const h = this.bgCanvas.height;
+            const [c0, c1, c2] = this.bgColors(now.getHours());
+
+            const g = ctx.createLinearGradient(0, 0, 0, h);
+            g.addColorStop(0,    c0);
+            g.addColorStop(0.55, c1);
+            g.addColorStop(1,    c2);
+            ctx.fillStyle = g;
+            ctx.fillRect(0, 0, w, h);
+
+            // 星
+            this.stars.forEach(s => {
+                const a = 0.35 + 0.65 * (0.5 + 0.5 * Math.sin(s.phase + t * s.spd));
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255,255,255,${a.toFixed(2)})`;
+                ctx.fill();
+            });
+
+            // 流れ星
+            if (t > this.nextShot) {
+                this.shooting.push({
+                    x: Math.random() * w * 0.7,
+                    y: Math.random() * h * 0.35,
+                    vx: 5 + Math.random() * 5,
+                    vy: 2 + Math.random() * 3,
+                    len: 60 + Math.random() * 80,
+                    life: 1.0,
+                });
+                this.nextShot = t + 4 + Math.random() * 7;
+            }
+            this.shooting = this.shooting.filter(ss => ss.life > 0);
+            this.shooting.forEach(ss => {
+                const tailX = ss.x - ss.vx * ss.len * 0.12;
+                const tailY = ss.y - ss.vy * ss.len * 0.12;
+                const sg = ctx.createLinearGradient(tailX, tailY, ss.x, ss.y);
+                sg.addColorStop(0, 'rgba(255,255,255,0)');
+                sg.addColorStop(1, `rgba(255,255,255,${ss.life.toFixed(2)})`);
+                ctx.beginPath();
+                ctx.moveTo(tailX, tailY);
+                ctx.lineTo(ss.x, ss.y);
+                ctx.strokeStyle = sg;
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
+                ss.x += ss.vx;
+                ss.y += ss.vy;
+                ss.life -= 0.022;
+            });
+        }
+
+        drawHand(ctx, cx, cy, angle, len, width, color, glow, back = 0.14) {
+            ctx.save();
+            ctx.translate(cx, cy);
+            ctx.rotate(angle);
+            ctx.lineCap = 'round';
+            ctx.lineWidth = width;
+            ctx.strokeStyle = color;
+            ctx.shadowBlur = glow;
+            ctx.shadowColor = color;
+            ctx.beginPath();
+            ctx.moveTo(-len * back, 0);
+            ctx.lineTo(len, 0);
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        drawClock(now) {
+            const ctx = this.ctx;
+            const S  = this.canvas.width;
+            const cx = S / 2;
+            const cy = S / 2;
+            const R  = S / 2 - 18;
+
+            ctx.clearRect(0, 0, S, S);
+
+            const ms  = now.getMilliseconds();
+            const sec = now.getSeconds() + ms / 1000;
+            const min = now.getMinutes() + sec / 60;
+            const hr  = (now.getHours() % 12) + min / 60;
+            const dayProg = (now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds()) / 86400;
+
+            // トラック（背景リング）
+            const track = (radius, width) => {
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+                ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+                ctx.lineWidth = width;
+                ctx.stroke();
+                ctx.restore();
+            };
+            track(R + 10, 4);
+            track(R + 4,  3);
+
+            // 24時間進捗アーク（黄金）
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(cx, cy, R + 10, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * dayProg);
+            ctx.strokeStyle = 'rgba(255,200,50,0.55)';
+            ctx.lineWidth = 4;
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = 'rgba(255,200,50,0.7)';
+            ctx.stroke();
+            ctx.restore();
+
+            // 分進捗アーク（シアン）
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(cx, cy, R + 4, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * (sec / 60));
+            ctx.strokeStyle = 'rgba(0,229,255,0.55)';
+            ctx.lineWidth = 3;
+            ctx.shadowBlur = 8;
+            ctx.shadowColor = 'rgba(0,229,255,0.7)';
+            ctx.stroke();
+            ctx.restore();
+
+            // 文字盤（放射グラデーション）
+            const fg = ctx.createRadialGradient(cx, cy - R * 0.15, 0, cx, cy, R);
+            fg.addColorStop(0, 'rgba(8,22,48,0.96)');
+            fg.addColorStop(1, 'rgba(3,8,18,0.98)');
+            ctx.beginPath();
+            ctx.arc(cx, cy, R, 0, Math.PI * 2);
+            ctx.fillStyle = fg;
+            ctx.fill();
+
+            // 文字盤縁
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(cx, cy, R, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(0,229,255,0.22)';
+            ctx.lineWidth = 1.5;
+            ctx.shadowBlur = 18;
+            ctx.shadowColor = 'rgba(0,229,255,0.35)';
+            ctx.stroke();
+            ctx.restore();
+
+            // 目盛り（60本）
+            for (let i = 0; i < 60; i++) {
+                const a    = (i / 60) * Math.PI * 2 - Math.PI / 2;
+                const isHr = i % 5 === 0;
+                ctx.save();
+                ctx.translate(cx, cy);
+                ctx.rotate(a);
+                ctx.beginPath();
+                ctx.moveTo(R - 2, 0);
+                ctx.lineTo(isHr ? R - 20 : R - 8, 0);
+                ctx.strokeStyle = isHr ? 'rgba(0,229,255,0.75)' : 'rgba(0,229,255,0.18)';
+                ctx.lineWidth = isHr ? 2.5 : 1;
+                if (isHr) { ctx.shadowBlur = 6; ctx.shadowColor = 'rgba(0,229,255,0.6)'; }
+                ctx.stroke();
+                ctx.restore();
+            }
+
+            // ローマ数字
+            const roman = ['XII','I','II','III','IV','V','VI','VII','VIII','IX','X','XI'];
+            ctx.font = `${Math.round(S * 0.052)}px 'Courier New'`;
+            ctx.textAlign    = 'center';
+            ctx.textBaseline = 'middle';
+            for (let i = 0; i < 12; i++) {
+                const a  = (i / 12) * Math.PI * 2 - Math.PI / 2;
+                const nr = R - 36;
+                ctx.save();
+                const isMain = i % 3 === 0;
+                ctx.fillStyle = isMain ? 'rgba(0,229,255,0.9)' : 'rgba(0,229,255,0.42)';
+                if (isMain) { ctx.shadowBlur = 9; ctx.shadowColor = 'rgba(0,229,255,0.6)'; }
+                ctx.fillText(roman[i], cx + Math.cos(a) * nr, cy + Math.sin(a) * nr);
+                ctx.restore();
+            }
+
+            // 時針（白）
+            this.drawHand(ctx, cx, cy, hr  / 12 * Math.PI * 2 - Math.PI / 2, R * 0.50, 6,   '#ffffff',  14, 0.10);
+            // 分針（シアン）
+            this.drawHand(ctx, cx, cy, min / 60 * Math.PI * 2 - Math.PI / 2, R * 0.74, 3.5, '#00e5ff',  22, 0.12);
+            // 秒針（ピンク）
+            this.drawHand(ctx, cx, cy, sec / 60 * Math.PI * 2 - Math.PI / 2, R * 0.87, 1.5, '#ff2d55',  28, 0.20);
+
+            // 秒針先端ドット
+            ctx.save();
+            ctx.translate(cx, cy);
+            ctx.rotate(sec / 60 * Math.PI * 2 - Math.PI / 2);
+            ctx.beginPath();
+            ctx.arc(R * 0.87, 0, 3.5, 0, Math.PI * 2);
+            ctx.fillStyle = '#ff2d55';
+            ctx.shadowBlur = 18;
+            ctx.shadowColor = '#ff2d55';
+            ctx.fill();
+            ctx.restore();
+
+            // 中心キャップ（2重）
+            [[8, 'rgba(0,229,255,0.9)', 20, '#00e5ff'], [4, '#ffffff', 8, '#ffffff']].forEach(([r, c, g, gc]) => {
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(cx, cy, r, 0, Math.PI * 2);
+                ctx.fillStyle = c;
+                ctx.shadowBlur = g;
+                ctx.shadowColor = gc;
+                ctx.fill();
+                ctx.restore();
+            });
+        }
+
+        pad(n) { return String(n).padStart(2, '0'); }
+
+        zoneTime(tz) {
+            const parts = new Intl.DateTimeFormat('en-US', {
+                timeZone: tz, hour: '2-digit', minute: '2-digit', hour12: false
+            }).formatToParts(new Date());
+            return `${parts.find(p => p.type === 'hour').value}:${parts.find(p => p.type === 'minute').value}`;
+        }
+
+        updateText(now) {
+            document.getElementById('dh').textContent = this.pad(now.getHours());
+            document.getElementById('dm').textContent = this.pad(now.getMinutes());
+            document.getElementById('ds').textContent = this.pad(now.getSeconds());
+
+            // コロン点滅
+            const opacity = now.getMilliseconds() < 500 ? '1' : '0.2';
+            document.getElementById('col1').style.opacity = opacity;
+            document.getElementById('col2').style.opacity = opacity;
+
+            // 日付
+            const days      = ['日曜日','月曜日','火曜日','水曜日','木曜日','金曜日','土曜日'];
+            const dayColors = ['#ff4d4d','#cccccc','#cccccc','#cccccc','#cccccc','#cccccc','#5599ff'];
+            document.getElementById('dateEl').innerHTML =
+                `${now.getFullYear()}年${now.getMonth() + 1}月${now.getDate()}日 ` +
+                `<span style="color:${dayColors[now.getDay()]}">${days[now.getDay()]}</span>`;
+
+            // 世界時計
+            document.getElementById('wc-tok').textContent = this.zoneTime('Asia/Tokyo');
+            document.getElementById('wc-ny' ).textContent = this.zoneTime('America/New_York');
+            document.getElementById('wc-lon').textContent = this.zoneTime('Europe/London');
+            document.getElementById('wc-syd').textContent = this.zoneTime('Australia/Sydney');
+
+            // Unixタイムスタンプ
+            document.getElementById('unixEl').textContent = `UNIX: ${Math.floor(now.getTime() / 1000)}`;
+        }
+
+        animate() {
+            const now = new Date();
+            const t   = performance.now() / 1000;
+            this.drawBg(now, t);
+            this.drawClock(now);
+            this.updateText(now);
+            requestAnimationFrame(() => this.animate());
+        }
+    }
+
+    new Clock().init();
+    </script>
+</body>
+</html>

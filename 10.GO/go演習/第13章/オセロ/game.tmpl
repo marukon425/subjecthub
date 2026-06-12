@@ -1,0 +1,90 @@
+<html><head>
+<title>オセロ</title>
+<style>
+  body { font-family: sans-serif; }
+  table { border-collapse: collapse; border: 2px solid #1a5c34; }
+  td {
+    width: 52px; height: 52px;
+    background: #2d8a4e;
+    border: 1px solid #1a5c34;
+    text-align: center; vertical-align: middle;
+  }
+  /* 黒石：黒い円 */
+  .kuro-stone {
+    display: inline-block; width: 42px; height: 42px;
+    background: #111; border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+  }
+  /* 白石：白い円 */
+  .shiro-stone {
+    display: inline-block; width: 42px; height: 42px;
+    background: #f0f0f0; border-radius: 50%;
+    border: 1px solid #bbb;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  }
+  /* 着手可能マスのボタン（小さな半透明の丸） */
+  .valid-btn {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: rgba(0, 0, 0, 0.3);
+    border: none; cursor: pointer;
+    transition: background 0.15s;
+  }
+  .valid-btn:hover { background: rgba(0, 0, 0, 0.6); }
+  .info { margin: 8px 0; font-size: 17px; }
+  .score { font-size: 16px; margin: 4px 0; }
+  .pass-btn { padding: 8px 28px; font-size: 15px; margin-top: 12px; cursor: pointer; }
+</style>
+</head><body>
+<h2>オセロ</h2>
+
+<div class="info">
+  {{if $.GameOver}}
+    {{if $.Winner}}
+      <b style="color:red; font-size:20px;">【{{$.Winner}}の勝ち！】</b>
+    {{else}}
+      <b style="font-size:20px;">【引き分け】</b>
+    {{end}}
+  {{else if $.MustPass}}
+    <b style="color:orange;">【{{$.Turn}}は置ける場所がありません → パスしてください】</b>
+  {{else}}
+    【{{$.Turn}}の手番】
+  {{end}}
+</div>
+
+<div class="score">⚫ 黒: {{$.KuroCount}} &nbsp;&nbsp; ⚪ 白: {{$.ShiroCount}}</div>
+<br>
+
+<form action="/game" method="post">
+  <input type="hidden" name="turn" value="{{$.Turn}}">
+  <table>
+    {{range $row, $rows := $.Board}}
+      <tr>
+        {{range $col, $cell := $rows}}
+          <td>
+            {{if eq $cell "黒"}}
+              {{/* 黒石：hidden input で盤面状態を保持 */}}
+              <span class="kuro-stone"></span>
+              <input type="hidden" name="c{{$row}}_{{$col}}" value="黒">
+            {{else if eq $cell "白"}}
+              {{/* 白石：hidden input で盤面状態を保持 */}}
+              <span class="shiro-stone"></span>
+              <input type="hidden" name="c{{$row}}_{{$col}}" value="白">
+            {{else if index $.ValidMoves (printf "%d_%d" $row $col)}}
+              {{/* 着手可能なマス：ボタンをクリックすると move="行_列" が送信される */}}
+              <button type="submit" class="valid-btn" name="move"
+                value="{{$row}}_{{$col}}" title="ここに置く"></button>
+            {{end}}
+          </td>
+        {{end}}
+      </tr>
+    {{end}}
+  </table>
+
+  {{if $.MustPass}}
+    <br>
+    <button type="submit" class="pass-btn" name="move" value="pass">パス</button>
+  {{end}}
+</form>
+
+<br><a href="/game">最初に戻る（リセット）</a>
+</body></html>

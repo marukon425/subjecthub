@@ -1,3 +1,4 @@
+// 一定時間で次の画像が表示されるようにする
 class PhotoViewer {
 
     constructor(rootElm, images) {
@@ -22,30 +23,44 @@ class PhotoViewer {
 
     updatePhoto() {
         const frameElm = this.rootElm.querySelector('.frame');
+        const imageIndex = this.currentIndex + 1;
         const image = this.images[this.currentIndex];
         frameElm.innerHTML = `
 <div class="currentImage">
+<p>${imageIndex}枚目</p>
 <img src="${image}" />
 </div>
         `;
+        this.startTimer();
+    }
+    startTimer() {
+        if (this.timerKey){
+            clearTimeout(this.timerKey);
+        }
+
+        this.timerKey = setTimeout(() => {
+            this.next();
+        }, 3000);
     }
 
     next() {
-        this.currentIndex++;
-        if (this.currentIndex >= this.images.length) {
+        const lastIndex = this.images.length -1;
+        if (lastIndex === this.currentIndex) {
             this.currentIndex = 0;
+        }else{
+            this.currentIndex ++;
         }
-
         this.updatePhoto();
     }
 
     prev() {
-        this.currentIndex--;
-        if (this.currentIndex < 0) {
-            this.currentIndex = this.images.length - 1;
-        }
-
+        const lastIndex = this.images.length -1;
+        if (this,this.currentIndex === 0){
+            this.currentIndex = lastIndex;
+        }else{
+            currentIndex --;
         this.updatePhoto();
+        }
     }
 }
 
