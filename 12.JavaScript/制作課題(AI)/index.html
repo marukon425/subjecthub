@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>寿司打タイピング</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- タイトル画面 -->
+  <div id="screen-title" class="screen active">
+    <div class="title-content">
+      <h1 class="title-logo">寿司打タイピング</h1>
+      <p class="title-sub">🍣 コースを選んでください 🍣</p>
+      <div class="course-buttons">
+        <button class="btn-course" data-course="easy">
+          <span class="course-name">かんたん</span>
+          <span class="course-desc">短い単語が中心</span>
+        </button>
+        <button class="btn-course" data-course="normal">
+          <span class="course-name">ふつう</span>
+          <span class="course-desc">長い単語も出てくる</span>
+        </button>
+      </div>
+      <p class="title-hint">※ 入力ルール：xn = ん　/ - = 長音符（ー）</p>
+    </div>
+  </div>
+
+  <!-- ゲーム画面 -->
+  <div id="screen-game" class="screen">
+
+    <!-- HUD -->
+    <div class="hud">
+      <div class="hud-item">
+        <div class="hud-label">のこり時間</div>
+        <div class="hud-value" id="timer">60</div>
+      </div>
+      <div class="hud-item">
+        <div class="hud-label">スコア</div>
+        <div class="hud-value" id="score">¥0</div>
+      </div>
+      <div class="hud-item">
+        <div class="hud-label">正解数</div>
+        <div class="hud-value" id="count">0</div>
+      </div>
+    </div>
+
+    <!-- タイマーバー -->
+    <div class="timer-bar-container">
+      <div class="timer-bar" id="timer-bar"></div>
+    </div>
+
+    <!-- 単語表示エリア -->
+    <div class="word-area" id="word-area">
+      <div class="word-price" id="word-price">¥0</div>
+      <div class="word-name" id="word-name">Loading...</div>
+      <div class="word-reading" id="word-reading"></div>
+      <div class="word-roman">
+        <span class="roman-done" id="roman-done"></span><span
+          class="roman-current" id="roman-current"></span><span
+          class="roman-rest" id="roman-rest"></span>
+      </div>
+    </div>
+
+    <p class="game-hint">キーボードで入力してください</p>
+
+    <!-- コンベアベルト -->
+    <div class="conveyor">
+      <div class="plate">🍣</div>
+      <div class="plate">🦐</div>
+      <div class="plate">🐟</div>
+      <div class="plate">🦑</div>
+      <div class="plate">🍱</div>
+      <div class="plate">🦞</div>
+    </div>
+
+  </div>
+
+  <!-- リザルト画面 -->
+  <div id="screen-result" class="screen">
+    <div class="result-content">
+      <h2 class="result-title">ゲーム終了！</h2>
+      <div class="result-stats">
+        <div class="result-stat">
+          <div class="stat-label">合計スコア</div>
+          <div class="stat-value" id="result-score">¥0</div>
+        </div>
+        <div class="result-stat">
+          <div class="stat-label">正解数</div>
+          <div class="stat-value" id="result-count">0問</div>
+        </div>
+      </div>
+      <p class="result-message" id="result-message"></p>
+      <div class="result-buttons">
+        <button class="btn-result" id="btn-retry">もう一度</button>
+        <button class="btn-result btn-secondary" id="btn-title">タイトルへ</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+[
+{
+    "id": 1,
+    "title": "My Favorite Song",
+    "artist": "Sample Artist",
+    "image": "img/sample1.jpg",
+    "preview": "https://example.com/preview1.mp3"
+},
+{
+    "id": 2,
+    "title": "Happy Day",
+    "artist": "Music Maker",
+    "image": "img/sample2.jpg",
+    "preview": "https://example.com/preview2.mp3"
+},
+{
+    "id": 3,
+    "title": "Night Drive",
+    "artist": "Cool Band",
+    "image": "img/sample3.jpg",
+    "preview": "https://example.com/preview3.mp3"
+}
+]

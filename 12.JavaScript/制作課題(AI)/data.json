@@ -1,0 +1,4493 @@
+[
+  {
+    "name": "アーティスト",
+    "reading": "あーてぃすと",
+    "roman": "a-thisuto",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "愛",
+    "reading": "あい",
+    "roman": "ai",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "アイコン",
+    "reading": "あいこん",
+    "roman": "aikoxn",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "アイス",
+    "reading": "あいす",
+    "roman": "aisu",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "青",
+    "reading": "あお",
+    "roman": "ao",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "青空",
+    "reading": "あおぞら",
+    "roman": "aozora",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "赤",
+    "reading": "あか",
+    "roman": "aka",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "明かり",
+    "reading": "あかり",
+    "roman": "akari",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "秋",
+    "reading": "あき",
+    "roman": "aki",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "秋の夜長",
+    "reading": "あきのよなが",
+    "roman": "akinoyonaga",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "秋葉原",
+    "reading": "あきはばら",
+    "roman": "akihabara",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "アキレス腱",
+    "reading": "あきれすけん",
+    "roman": "akiresukexn",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "アクセント",
+    "reading": "あくせんと",
+    "roman": "akusento",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "朝",
+    "reading": "あさ",
+    "roman": "asa",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "朝顔",
+    "reading": "あさがお",
+    "roman": "asagao",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "朝のあいさつ",
+    "reading": "あさのあいさつ",
+    "roman": "asanoaisatu",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "アザラシ",
+    "reading": "あざらし",
+    "roman": "azarasi",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "アサリ",
+    "reading": "あさり",
+    "roman": "asari",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "アジ",
+    "reading": "あじ",
+    "roman": "aji",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "アジの干物",
+    "reading": "あじのひもの",
+    "roman": "ajinohimono",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "アスパラガス",
+    "reading": "あすぱらがす",
+    "roman": "asuparagasu",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "アスファルト",
+    "reading": "あすふぁると",
+    "roman": "asufaruto",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "アットマーク",
+    "reading": "あっとまーく",
+    "roman": "attoma-ku",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "アップルパイ",
+    "reading": "あっぷるぱい",
+    "roman": "appurupai",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "穴",
+    "reading": "あな",
+    "roman": "ana",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "アナゴ",
+    "reading": "あなご",
+    "roman": "anago",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "兄",
+    "reading": "あに",
+    "roman": "ani",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "アニメーション",
+    "reading": "あにめーしょん",
+    "roman": "anime-shoxn",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "アヒル",
+    "reading": "あひる",
+    "roman": "ahiru",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "アフロ",
+    "reading": "あふろ",
+    "roman": "afuro",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "アボカド",
+    "reading": "あぼかど",
+    "roman": "abokado",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "甘エビ",
+    "reading": "あまえび",
+    "roman": "amaebi",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "雨",
+    "reading": "あめ",
+    "roman": "ame",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "飴ちゃん",
+    "reading": "あめちゃん",
+    "roman": "ametyaxn",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "アメとムチ",
+    "reading": "あめとむち",
+    "roman": "ametomuti",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "アメフラシ",
+    "reading": "あめふらし",
+    "roman": "amefurasi",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "あら奥様",
+    "reading": "あらおくさま",
+    "roman": "araokusama",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "アルマジロ",
+    "reading": "あるまじろ",
+    "roman": "arumajiro",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "アワビ",
+    "reading": "あわび",
+    "roman": "awabi",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "アンケート",
+    "reading": "あんけーと",
+    "roman": "anke-to",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "いい天気",
+    "reading": "いいてんき",
+    "roman": "iitenki",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "家",
+    "reading": "いえ",
+    "roman": "ie",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "イカ",
+    "reading": "いか",
+    "roman": "ika",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "意気投合",
+    "reading": "いきとうごう",
+    "roman": "ikitougou",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "イクラ",
+    "reading": "いくら",
+    "roman": "ikura",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "石",
+    "reading": "いし",
+    "roman": "isi",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "異常事態",
+    "reading": "いじょうじたい",
+    "roman": "ijoujitai",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "イス",
+    "reading": "いす",
+    "roman": "isu",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "椅子取りゲーム",
+    "reading": "いすとりげーむ",
+    "roman": "isutorige-mu",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "イソギンチャク",
+    "reading": "いそぎんちゃく",
+    "roman": "isogintyaku",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "いただきます",
+    "reading": "いただきます",
+    "roman": "itadakimasu",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "イチゴ",
+    "reading": "いちご",
+    "roman": "itigo",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "イチゴジャム",
+    "reading": "いちごじゃむ",
+    "roman": "itigojamu",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "イチゴ大福",
+    "reading": "いちごだいふく",
+    "roman": "itigodaifuku",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "一本",
+    "reading": "いっぽん",
+    "roman": "ippoxn",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "糸",
+    "reading": "いと",
+    "roman": "ito",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "井戸",
+    "reading": "いど",
+    "roman": "ido",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "犬",
+    "reading": "いぬ",
+    "roman": "inu",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "犬と散歩",
+    "reading": "いぬとさんぽ",
+    "roman": "inutosanpo",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "イノシシ",
+    "reading": "いのしし",
+    "roman": "inosisi",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "今",
+    "reading": "いま",
+    "roman": "ima",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "意味",
+    "reading": "いみ",
+    "roman": "imi",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "癒し系",
+    "reading": "いやしけい",
+    "roman": "iyasikei",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "色",
+    "reading": "いろ",
+    "roman": "iro",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "色鉛筆",
+    "reading": "いろえんぴつ",
+    "roman": "iroenpitu",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "イワシ",
+    "reading": "いわし",
+    "roman": "iwasi",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "インターネット",
+    "reading": "いんたーねっと",
+    "roman": "inta-netto",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "ウグイス",
+    "reading": "うぐいす",
+    "roman": "uguisu",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ウサギ",
+    "reading": "うさぎ",
+    "roman": "usagi",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "牛",
+    "reading": "うし",
+    "roman": "usi",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "右折禁止",
+    "reading": "うせつきんし",
+    "roman": "usetukinsi",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "嘘",
+    "reading": "うそ",
+    "roman": "uso",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "歌",
+    "reading": "うた",
+    "roman": "uta",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "うっとりする",
+    "reading": "うっとりする",
+    "roman": "uttorisuru",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "腕時計",
+    "reading": "うでどけい",
+    "roman": "udedokei",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "ウナギ",
+    "reading": "うなぎ",
+    "roman": "unagi",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ウニ",
+    "reading": "うに",
+    "roman": "uni",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "馬",
+    "reading": "うま",
+    "roman": "uma",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "海",
+    "reading": "うみ",
+    "roman": "umi",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "海の日",
+    "reading": "うみのひ",
+    "roman": "uminohi",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "梅",
+    "reading": "うめ",
+    "roman": "ume",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "梅酒",
+    "reading": "うめしゅ",
+    "roman": "umeshu",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "エイ",
+    "reading": "えい",
+    "roman": "ei",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "映画館",
+    "reading": "えいがかん",
+    "roman": "eigakaxn",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "永久歯",
+    "reading": "えいきゅうし",
+    "roman": "eikyuusi",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "英単語",
+    "reading": "えいたんご",
+    "roman": "eitango",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "駅",
+    "reading": "えき",
+    "roman": "eki",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "エクササイズ",
+    "reading": "えくささいず",
+    "roman": "ekusasaizu",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "エスカレーター",
+    "reading": "えすかれーたー",
+    "roman": "esukare-ta-",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "エチケット",
+    "reading": "えちけっと",
+    "roman": "etiketto",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "江戸時代",
+    "reading": "えどじだい",
+    "roman": "edojidai",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "江戸幕府",
+    "reading": "えどばくふ",
+    "roman": "edobakufu",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "海老",
+    "reading": "えび",
+    "roman": "ebi",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "エビフライ",
+    "reading": "えびふらい",
+    "roman": "ebifurai",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "笑み",
+    "reading": "えみ",
+    "roman": "emi",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "エメラルド",
+    "reading": "えめらるど",
+    "roman": "emerarudo",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "エレベーター",
+    "reading": "えれべーたー",
+    "roman": "erebe-ta-",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "えんがわ",
+    "reading": "えんがわ",
+    "roman": "engawa",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "エンディング",
+    "reading": "えんでぃんぐ",
+    "roman": "endhingu",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "鉛筆削り",
+    "reading": "えんぴつけずり",
+    "roman": "enpitukezuri",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "おいなりさん",
+    "reading": "おいなりさん",
+    "roman": "oinarisaxn",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "大トロ",
+    "reading": "おおとろ",
+    "roman": "ootoro",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "オカリナ",
+    "reading": "おかりな",
+    "roman": "okarina",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "お気に入り",
+    "reading": "おきにいり",
+    "roman": "okiniiri",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "お好み焼き",
+    "reading": "おこのみやき",
+    "roman": "okonomiyaki",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "お茶",
+    "reading": "おちゃ",
+    "roman": "otya",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "おにぎり",
+    "reading": "おにぎり",
+    "roman": "onigiri",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "お風呂",
+    "reading": "おふろ",
+    "roman": "ofuro",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "お祭り",
+    "reading": "おまつり",
+    "roman": "omaturi",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "おままごと",
+    "reading": "おままごと",
+    "roman": "omamagoto",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "オムライス",
+    "reading": "おむらいす",
+    "roman": "omuraisu",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "オムレツ",
+    "reading": "おむれつ",
+    "roman": "omuretu",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "親子丼",
+    "reading": "おやこどん",
+    "roman": "oyakodoxn",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "おやつ",
+    "reading": "おやつ",
+    "roman": "oyatu",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "オリーブオイル",
+    "reading": "おりーぶおいる",
+    "roman": "ori-buoiru",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "オリンピック",
+    "reading": "おりんぴっく",
+    "roman": "orinpikku",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "オレンジ",
+    "reading": "おれんじ",
+    "roman": "orenji",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "カーブ",
+    "reading": "かーぶ",
+    "roman": "ka-bu",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "カーリング",
+    "reading": "かーりんぐ",
+    "roman": "ka-ringu",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "貝",
+    "reading": "かい",
+    "roman": "kai",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "海水浴",
+    "reading": "かいすいよく",
+    "roman": "kaisuiyoku",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "回転寿司",
+    "reading": "かいてんずし",
+    "roman": "kaitenzusi",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "カエル",
+    "reading": "かえる",
+    "roman": "kaeru",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "数の子",
+    "reading": "かずのこ",
+    "roman": "kazunoko",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "風",
+    "reading": "かぜ",
+    "roman": "kaze",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "家族会議",
+    "reading": "かぞくかいぎ",
+    "roman": "kazokukaigi",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "カッパ巻き",
+    "reading": "かっぱまき",
+    "roman": "kappamaki",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "カップラーメン",
+    "reading": "かっぷらーめん",
+    "roman": "kappura-mexn",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "カニ",
+    "reading": "かに",
+    "roman": "kani",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "壁",
+    "reading": "かべ",
+    "roman": "kabe",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "かぼちゃ",
+    "reading": "かぼちゃ",
+    "roman": "kabotya",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "カマキリ",
+    "reading": "かまきり",
+    "roman": "kamakiri",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "かまくら",
+    "reading": "かまくら",
+    "roman": "kamakura",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "鎌倉幕府",
+    "reading": "かまくらばくふ",
+    "roman": "kamakurabakufu",
+    "level": 5,
+    "price": 500,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "神",
+    "reading": "かみ",
+    "roman": "kami",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "カレー",
+    "reading": "かれー",
+    "roman": "kare-",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "川",
+    "reading": "かわ",
+    "roman": "kawa",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "カンガルー",
+    "reading": "かんがるー",
+    "roman": "kangaru-",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "漢字",
+    "reading": "かんじ",
+    "roman": "kanji",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "カンパチ",
+    "reading": "かんぱち",
+    "roman": "kanpati",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "キノコ",
+    "reading": "きのこ",
+    "roman": "kinoko",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "兄弟",
+    "reading": "きょうだい",
+    "roman": "kyoudai",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "恐竜",
+    "reading": "きょうりゅう",
+    "roman": "kyouryuu",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "金魚",
+    "reading": "きんぎょ",
+    "roman": "kingyo",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "草",
+    "reading": "くさ",
+    "roman": "kusa",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "クッキー",
+    "reading": "くっきー",
+    "roman": "kukki-",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "靴下",
+    "reading": "くつした",
+    "roman": "kutusita",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "クマ",
+    "reading": "くま",
+    "roman": "kuma",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "雲",
+    "reading": "くも",
+    "roman": "kumo",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "くもりのち晴れ",
+    "reading": "くもりのちはれ",
+    "roman": "kumorinotihare",
+    "level": 5,
+    "price": 500,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "クラリネット",
+    "reading": "くらりねっと",
+    "roman": "kurarinetto",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "栗きんとん",
+    "reading": "くりきんとん",
+    "roman": "kurikintoxn",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "車",
+    "reading": "くるま",
+    "roman": "kuruma",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "黒い猫",
+    "reading": "くろいねこ",
+    "roman": "kuroineko",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "黒酢",
+    "reading": "くろず",
+    "roman": "kurozu",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "携帯電話",
+    "reading": "けいたいでんわ",
+    "roman": "keitaidenwa",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "消しゴム",
+    "reading": "けしごむ",
+    "roman": "kesigomu",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "結婚します",
+    "reading": "けっこんします",
+    "roman": "kekkonsimasu",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "剣",
+    "reading": "けん",
+    "roman": "kexn",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "研究",
+    "reading": "けんきゅう",
+    "roman": "kenkyuu",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "検索",
+    "reading": "けんさく",
+    "roman": "kensaku",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "けんだま",
+    "reading": "けんだま",
+    "roman": "kendama",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "コアラ",
+    "reading": "こあら",
+    "roman": "koara",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "恋",
+    "reading": "こい",
+    "roman": "koi",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "鯉のぼり",
+    "reading": "こいのぼり",
+    "roman": "koinobori",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "コーヒー",
+    "reading": "こーひー",
+    "roman": "ko-hi-",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "黒板",
+    "reading": "こくばん",
+    "roman": "kokubaxn",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "コタツ",
+    "reading": "こたつ",
+    "roman": "kotatu",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ごちそうさま",
+    "reading": "ごちそうさま",
+    "roman": "gotisousama",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "小鳥",
+    "reading": "ことり",
+    "roman": "kotori",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "子猫ちゃん",
+    "reading": "こねこちゃん",
+    "roman": "konekotyaxn",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "ご飯まだー？",
+    "reading": "ごはんまだー？",
+    "roman": "gohanmada-?",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "怖い話",
+    "reading": "こわいはなし",
+    "roman": "kowaihanasi",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "サーモン",
+    "reading": "さーもん",
+    "roman": "sa-moxn",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "桜",
+    "reading": "さくら",
+    "roman": "sakura",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "さくらもち",
+    "reading": "さくらもち",
+    "roman": "sakuramoti",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "さくらんぼ",
+    "reading": "さくらんぼ",
+    "roman": "sakuranbo",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "サッカー",
+    "reading": "さっかー",
+    "roman": "sakka-",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "サバ",
+    "reading": "さば",
+    "roman": "saba",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "皿",
+    "reading": "さら",
+    "roman": "sara",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "サル",
+    "reading": "さる",
+    "roman": "saru",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "サンマ",
+    "reading": "さんま",
+    "roman": "sanma",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "時間がない",
+    "reading": "じかんがない",
+    "roman": "jikanganai",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "シジミ",
+    "reading": "しじみ",
+    "roman": "sijimi",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ししゃも",
+    "reading": "ししゃも",
+    "roman": "sishamo",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "尻尾",
+    "reading": "しっぽ",
+    "roman": "sippo",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "姉妹",
+    "reading": "しまい",
+    "roman": "simai",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "シマウマ",
+    "reading": "しまうま",
+    "roman": "simauma",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "じゃあまたね",
+    "reading": "じゃあまたね",
+    "roman": "jaamatane",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "シャボン玉",
+    "reading": "しゃぼんだま",
+    "roman": "shabondama",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "じゃんけんポン",
+    "reading": "じゃんけんぽん",
+    "roman": "jankenpoxn",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "城",
+    "reading": "しろ",
+    "roman": "siro",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "スイカ",
+    "reading": "すいか",
+    "roman": "suika",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "スイカ割り",
+    "reading": "すいかわり",
+    "roman": "suikawari",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "水族館",
+    "reading": "すいぞくかん",
+    "roman": "suizokukaxn",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "スキヤキ",
+    "reading": "すきやき",
+    "roman": "sukiyaki",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "スケート",
+    "reading": "すけーと",
+    "roman": "suke-to",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "寿司",
+    "reading": "すし",
+    "roman": "susi",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "鈴虫",
+    "reading": "すずむし",
+    "roman": "suzumusi",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "スズメ",
+    "reading": "すずめ",
+    "roman": "suzume",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "砂",
+    "reading": "すな",
+    "roman": "suna",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "砂時計",
+    "reading": "すなどけい",
+    "roman": "sunadokei",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "世界",
+    "reading": "せかい",
+    "roman": "sekai",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "絶滅の危機",
+    "reading": "ぜつめつのきき",
+    "roman": "zetumetunokiki",
+    "level": 5,
+    "price": 500,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "セミ",
+    "reading": "せみ",
+    "roman": "semi",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ゼリー",
+    "reading": "ぜりー",
+    "roman": "zeri-",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "線香花火",
+    "reading": "せんこうはなび",
+    "roman": "senkouhanabi",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "象",
+    "reading": "ぞう",
+    "roman": "zou",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "掃除機",
+    "reading": "そうじき",
+    "roman": "soujiki",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "ソーセージ",
+    "reading": "そーせーじ",
+    "roman": "so-se-ji",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "卒業式",
+    "reading": "そつぎょうしき",
+    "roman": "sotugyousiki",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "タイ",
+    "reading": "たい",
+    "roman": "tai",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "大根",
+    "reading": "だいこん",
+    "roman": "daikoxn",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "体重",
+    "reading": "たいじゅう",
+    "roman": "taijuu",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "タイピング",
+    "reading": "たいぴんぐ",
+    "roman": "taipingu",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "台風",
+    "reading": "たいふう",
+    "roman": "taifuu",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "タコ",
+    "reading": "たこ",
+    "roman": "tako",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "たこ焼き",
+    "reading": "たこやき",
+    "roman": "takoyaki",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "玉子焼き",
+    "reading": "たまごやき",
+    "roman": "tamagoyaki",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "タラバガニ",
+    "reading": "たらばがに",
+    "roman": "tarabagani",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "誕生日",
+    "reading": "たんじょうび",
+    "roman": "tanjoubi",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "たんぽぽ",
+    "reading": "たんぽぽ",
+    "roman": "tanpopo",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "地球",
+    "reading": "ちきゅう",
+    "roman": "tikyuu",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "中トロ",
+    "reading": "ちゅうとろ",
+    "roman": "tyuutoro",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "チョコレート",
+    "reading": "ちょこれーと",
+    "roman": "tyokore-to",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "月",
+    "reading": "つき",
+    "roman": "tuki",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "釣り",
+    "reading": "つり",
+    "roman": "turi",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "鶴と亀",
+    "reading": "つるとかめ",
+    "roman": "turutokame",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "テーブル",
+    "reading": "てーぶる",
+    "roman": "te-buru",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "鉄火巻き",
+    "reading": "てっかまき",
+    "roman": "tekkamaki",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "鉄道",
+    "reading": "てつどう",
+    "roman": "tetudou",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "天気予報",
+    "reading": "てんきよほう",
+    "roman": "tenkiyohou",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "電話",
+    "reading": "でんわ",
+    "roman": "denwa",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "電話番号",
+    "reading": "でんわばんごう",
+    "roman": "denwabangou",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "東京都",
+    "reading": "とうきょうと",
+    "roman": "toukyouto",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "動物園",
+    "reading": "どうぶつえん",
+    "roman": "doubutuexn",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "トマト",
+    "reading": "とまと",
+    "roman": "tomato",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "友達",
+    "reading": "ともだち",
+    "roman": "tomodati",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "トラ",
+    "reading": "とら",
+    "roman": "tora",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "鳥",
+    "reading": "とり",
+    "roman": "tori",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "どんぐり",
+    "reading": "どんぐり",
+    "roman": "donguri",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "トンボ",
+    "reading": "とんぼ",
+    "roman": "tonbo",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "夏",
+    "reading": "なつ",
+    "roman": "natu",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "納豆菌",
+    "reading": "なっとうきん",
+    "roman": "nattoukixn",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "夏祭り",
+    "reading": "なつまつり",
+    "roman": "natumaturi",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "波",
+    "reading": "なみ",
+    "roman": "nami",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "西",
+    "reading": "にし",
+    "roman": "nisi",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "日記",
+    "reading": "にっき",
+    "roman": "nikki",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "庭",
+    "reading": "にわ",
+    "roman": "niwa",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ニワトリ",
+    "reading": "にわとり",
+    "roman": "niwatori",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "忍者",
+    "reading": "にんじゃ",
+    "roman": "ninja",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ぬいぐるみ",
+    "reading": "ぬいぐるみ",
+    "roman": "nuigurumi",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "猫",
+    "reading": "ねこ",
+    "roman": "neko",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "猫じゃらし",
+    "reading": "ねこじゃらし",
+    "roman": "nekojarasi",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "ネタ",
+    "reading": "ねた",
+    "roman": "neta",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ネタバレ",
+    "reading": "ねたばれ",
+    "roman": "netabare",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "熱帯魚",
+    "reading": "ねったいぎょ",
+    "roman": "nettaigyo",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "パイナップル",
+    "reading": "ぱいなっぷる",
+    "roman": "painappuru",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "バケツ",
+    "reading": "ばけつ",
+    "roman": "baketu",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ハツカネズミ",
+    "reading": "はつかねずみ",
+    "roman": "hatukanezumi",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "花",
+    "reading": "はな",
+    "roman": "hana",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "バナナ",
+    "reading": "ばなな",
+    "roman": "banana",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "花火",
+    "reading": "はなび",
+    "roman": "hanabi",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "花より団子",
+    "reading": "はなよりだんご",
+    "roman": "hanayoridango",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "ハマチ",
+    "reading": "はまち",
+    "roman": "hamati",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ハムスター",
+    "reading": "はむすたー",
+    "roman": "hamusuta-",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "春",
+    "reading": "はる",
+    "roman": "haru",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "パン",
+    "reading": "ぱん",
+    "roman": "paxn",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "パンダ",
+    "reading": "ぱんだ",
+    "roman": "panda",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ピアノ",
+    "reading": "ぴあの",
+    "roman": "piano",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ピザ",
+    "reading": "ぴざ",
+    "roman": "piza",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ヒツジ",
+    "reading": "ひつじ",
+    "roman": "hituji",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ひなたぼっこ",
+    "reading": "ひなたぼっこ",
+    "roman": "hinatabokko",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "秘密",
+    "reading": "ひみつ",
+    "roman": "himitu",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ヒマワリの種",
+    "reading": "ひまわりのたね",
+    "roman": "himawarinotane",
+    "level": 5,
+    "price": 500,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ピラミッド",
+    "reading": "ぴらみっど",
+    "roman": "piramiddo",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "富士山",
+    "reading": "ふじさん",
+    "roman": "fujisaxn",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "冬",
+    "reading": "ふゆ",
+    "roman": "fuyu",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "プリン",
+    "reading": "ぷりん",
+    "roman": "purixn",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ブロッコリー",
+    "reading": "ぶろっこりー",
+    "roman": "burokkori-",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "ペットボトル",
+    "reading": "ぺっとぼとる",
+    "roman": "pettobotoru",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "部屋の中",
+    "reading": "へやのなか",
+    "roman": "heyanonaka",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "ペンギン",
+    "reading": "ぺんぎん",
+    "roman": "pengixn",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "ホタテ",
+    "reading": "ほたて",
+    "roman": "hotate",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "ボタン海老",
+    "reading": "ぼたんえび",
+    "roman": "botanebi",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "ポテトサラダ",
+    "reading": "ぽてとさらだ",
+    "roman": "potetosarada",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "本棚の裏",
+    "reading": "ほんだなのうら",
+    "roman": "hondananoura",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "マグロ",
+    "reading": "まぐろ",
+    "roman": "maguro",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "まだまだだな",
+    "reading": "まだまだだな",
+    "roman": "madamadadana",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "マップ",
+    "reading": "まっぷ",
+    "roman": "mappu",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "魔法使い",
+    "reading": "まほうつかい",
+    "roman": "mahoutukai",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "豆まき",
+    "reading": "まめまき",
+    "roman": "mamemaki",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "マヨネーズ",
+    "reading": "まよねーず",
+    "roman": "mayone-zu",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "三日月",
+    "reading": "みかづき",
+    "roman": "mikaduki",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ミカン",
+    "reading": "みかん",
+    "roman": "mikaxn",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "道",
+    "reading": "みち",
+    "roman": "miti",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "耳",
+    "reading": "みみ",
+    "roman": "mimi",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "麦茶",
+    "reading": "むぎちゃ",
+    "roman": "mugitya",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "虫",
+    "reading": "むし",
+    "roman": "musi",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "虫歯",
+    "reading": "むしば",
+    "roman": "musiba",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "村",
+    "reading": "むら",
+    "roman": "mura",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "名刺",
+    "reading": "めいし",
+    "roman": "meisi",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "迷路",
+    "reading": "めいろ",
+    "roman": "meiro",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "メダカ",
+    "reading": "めだか",
+    "roman": "medaka",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "目玉焼き",
+    "reading": "めだまやき",
+    "roman": "medamayaki",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "メロン",
+    "reading": "めろん",
+    "roman": "meroxn",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "モグラ",
+    "reading": "もぐら",
+    "roman": "mogura",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "モモ",
+    "reading": "もも",
+    "roman": "momo",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "森",
+    "reading": "もり",
+    "roman": "mori",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "焼き魚",
+    "reading": "やきざかな",
+    "roman": "yakizakana",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "野球",
+    "reading": "やきゅう",
+    "roman": "yakyuu",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "野菜",
+    "reading": "やさい",
+    "roman": "yasai",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ヤモリ",
+    "reading": "やもり",
+    "roman": "yamori",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "雪",
+    "reading": "ゆき",
+    "roman": "yuki",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "雪だるま",
+    "reading": "ゆきだるま",
+    "roman": "yukidaruma",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "妖怪",
+    "reading": "ようかい",
+    "roman": "youkai",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "夜",
+    "reading": "よる",
+    "roman": "yoru",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ラーメン",
+    "reading": "らーめん",
+    "roman": "ra-mexn",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ライオン",
+    "reading": "らいおん",
+    "roman": "raioxn",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ラッコ",
+    "reading": "らっこ",
+    "roman": "rakko",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ランドセル",
+    "reading": "らんどせる",
+    "roman": "randoseru",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "リサイクル",
+    "reading": "りさいくる",
+    "roman": "risaikuru",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "りんご",
+    "reading": "りんご",
+    "roman": "ringo",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "りんご飴",
+    "reading": "りんごあめ",
+    "roman": "ringoame",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "ルーレット",
+    "reading": "るーれっと",
+    "roman": "ru-retto",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "冷蔵庫",
+    "reading": "れいぞうこ",
+    "roman": "reizouko",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "令和",
+    "reading": "れいわ",
+    "roman": "reiwa",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "レタス",
+    "reading": "れたす",
+    "roman": "retasu",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "練習",
+    "reading": "れんしゅう",
+    "roman": "renshuu",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy",
+      "normal"
+    ]
+  },
+  {
+    "name": "ろうそく",
+    "reading": "ろうそく",
+    "roman": "rousoku",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ローズケーキ",
+    "reading": "ろーるけーき",
+    "roman": "ro-ruke-ki",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ワサビ",
+    "reading": "わさび",
+    "roman": "wasabi",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "綿菓子",
+    "reading": "わたがし",
+    "roman": "watagasi",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ワニ",
+    "reading": "わに",
+    "roman": "wani",
+    "level": 1,
+    "price": 100,
+    "course": [
+      "easy"
+    ]
+  },
+  {
+    "name": "ああ言えばこう言う",
+    "reading": "ああいえばこういう",
+    "roman": "aaiebakouiu",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "愛妻弁当",
+    "reading": "あいさいべんとう",
+    "roman": "aisaibentou",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "赤いチューリップ",
+    "reading": "あかいちゅーりっぷ",
+    "roman": "akaityu-rippu",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "あけましておめでとう",
+    "reading": "あけましておめでとう",
+    "roman": "akemasiteomedetou",
+    "level": 5,
+    "price": 500,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "朝顔の観察",
+    "reading": "あさがおのかんさつ",
+    "roman": "asagaonokansatu",
+    "level": 5,
+    "price": 500,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "アサリのお味噌汁",
+    "reading": "あさりのおみそしる",
+    "roman": "asarinoomisosiru",
+    "level": 5,
+    "price": 500,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "アナゴ一本握り",
+    "reading": "あなごいっぽんにぎり",
+    "roman": "anagoippoxnnigiri",
+    "level": 5,
+    "price": 500,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "あなたに一目ぼれ",
+    "reading": "あなたにひとめぼれ",
+    "roman": "anatanihitomebore",
+    "level": 5,
+    "price": 500,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "甘いものは別腹",
+    "reading": "あまいものはべつばら",
+    "roman": "amaimonohabetubara",
+    "level": 5,
+    "price": 500,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "甘酸っぱい思い出",
+    "reading": "あまずっぱいおもいで",
+    "roman": "amazuppaiomoide",
+    "level": 5,
+    "price": 500,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "雨上がりの夜空",
+    "reading": "あめあがりのよぞら",
+    "roman": "ameagarinoyozora",
+    "level": 5,
+    "price": 500,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "暗証番号",
+    "reading": "あんしょうばんごう",
+    "roman": "anshoubangou",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "アンデス山脈",
+    "reading": "あんですさんみゃく",
+    "roman": "andesusanmyaku",
+    "level": 5,
+    "price": 500,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "一匹狼",
+    "reading": "いっぴきおおかみ",
+    "roman": "ippikiookami",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "ウサギをモフモフする",
+    "reading": "うさぎをもふもふする",
+    "roman": "usagiwomofumofusuru",
+    "level": 5,
+    "price": 500,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "打ち上げ花火",
+    "reading": "うちあげはなび",
+    "roman": "utiagehanabi",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "宇宙遊泳",
+    "reading": "うちゅうゆうえい",
+    "roman": "utyuuyuuei",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "王様ゲーム",
+    "reading": "おうさまげーむ",
+    "roman": "ousamage-mu",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "大掃除",
+    "reading": "おおそうじ",
+    "roman": "oosouji",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "おたまじゃくし",
+    "reading": "おたまじゃくし",
+    "roman": "otamajakusi",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "お疲れ様でした",
+    "reading": "おつかれさまでした",
+    "roman": "otukaresamadesita",
+    "level": 5,
+    "price": 500,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "落とし穴",
+    "reading": "おとしあな",
+    "roman": "otosiana",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "鬼に金棒",
+    "reading": "おににかなぼう",
+    "roman": "oninikanabou",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "お肌つるつる",
+    "reading": "おはだつるつる",
+    "roman": "ohadaturuturu",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "音速の壁",
+    "reading": "おんそくのかべ",
+    "roman": "onsokunokabe",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "懐中電灯",
+    "reading": "かいちゅうでんとう",
+    "roman": "kaityuudentou",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "カオス理論",
+    "reading": "かおすりろん",
+    "roman": "kaosuriroxn",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "家庭菜園",
+    "reading": "かていさいえん",
+    "roman": "kateisaiexn",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "神対応",
+    "reading": "かみたいおう",
+    "roman": "kamitaiou",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "カレンダー",
+    "reading": "かれんだー",
+    "roman": "karenda-",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "頑張れニッポン",
+    "reading": "がんばれにっぽん",
+    "roman": "ganbarenippoxn",
+    "level": 5,
+    "price": 500,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "今日の日記",
+    "reading": "きょうのにっき",
+    "roman": "kyounonikki",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "銀行口座",
+    "reading": "ぎんこうこうざ",
+    "roman": "ginkoukouza",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "筋肉痛",
+    "reading": "きんにくつう",
+    "roman": "kixnnikutuu",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "空気清浄機",
+    "reading": "くうきせいじょうき",
+    "roman": "kuukiseijouki",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "ぐっすり眠る",
+    "reading": "ぐっすりねむる",
+    "roman": "gussurinemuru",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "クリスタル",
+    "reading": "くりすたる",
+    "roman": "kurisutaru",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "軍艦巻き",
+    "reading": "ぐんかんまき",
+    "roman": "gunkanmaki",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "検索エンジン",
+    "reading": "けんさくえんじん",
+    "roman": "kensakuenjixn",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "顕微鏡",
+    "reading": "けんびきょう",
+    "roman": "kenbikyou",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "子猫の肉球",
+    "reading": "こねこのにくきゅう",
+    "roman": "konekononikukyuu",
+    "level": 5,
+    "price": 500,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "小春日和",
+    "reading": "こはるびより",
+    "roman": "koharubiyori",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "ザリガニ釣り",
+    "reading": "ざりがにつり",
+    "roman": "zariganituri",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "さるのこしかけ",
+    "reading": "さるのこしかけ",
+    "roman": "sarunokosikake",
+    "level": 5,
+    "price": 500,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "三時のおやつ",
+    "reading": "さんじのおやつ",
+    "roman": "sanjinooyatu",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "三段跳び",
+    "reading": "さんだんとび",
+    "roman": "sandantobi",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "ジグソーパズル",
+    "reading": "じぐそーぱずる",
+    "roman": "jiguso-pazuru",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "死後の世界",
+    "reading": "しごのせかい",
+    "roman": "sigonosekai",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "死なばもろとも",
+    "reading": "しなばもろとも",
+    "roman": "sinabamorotomo",
+    "level": 5,
+    "price": 500,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "始発列車",
+    "reading": "しはつれっしゃ",
+    "roman": "sihaturessha",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "シャーベット",
+    "reading": "しゃーべっと",
+    "roman": "sha-betto",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "ジャングルジム",
+    "reading": "じゃんぐるじむ",
+    "roman": "jangurujimu",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "手裏剣",
+    "reading": "しゅりけん",
+    "roman": "shurikexn",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "消火器",
+    "reading": "しょうかき",
+    "roman": "shoukaki",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "少林寺",
+    "reading": "しょうりんじ",
+    "roman": "shourinji",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "支離滅裂",
+    "reading": "しりめつれつ",
+    "roman": "sirimeturetu",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "深海魚",
+    "reading": "しんかいぎょ",
+    "roman": "sinkaigyo",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "身長",
+    "reading": "しんちょう",
+    "roman": "sintyou",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "新聞紙",
+    "reading": "しんぶんし",
+    "roman": "sinbunsi",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "心理テスト",
+    "reading": "しんりてすと",
+    "roman": "sinritesuto",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "スズメの涙",
+    "reading": "すずめのなみだ",
+    "roman": "suzumenonamida",
+    "level": 5,
+    "price": 500,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "ストッキング",
+    "reading": "すとっきんぐ",
+    "roman": "sutokkingu",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "スマートフォン",
+    "reading": "すまーとふぉん",
+    "roman": "suma-tofoxn",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "スルメイカ",
+    "reading": "するめいか",
+    "roman": "surumeika",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "ズワイガニ",
+    "reading": "ずわいがに",
+    "roman": "zuwaigani",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "宝の地図",
+    "reading": "たからのちず",
+    "roman": "takaranotizu",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "卓球",
+    "reading": "たっきゅう",
+    "roman": "takkyuu",
+    "level": 2,
+    "price": 200,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "どんでん返し",
+    "reading": "どんでんがえし",
+    "roman": "dondengaesi",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "流しそうめん",
+    "reading": "ながしそうめん",
+    "roman": "nagasisoumexn",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "七色の虹",
+    "reading": "なないろのにじ",
+    "roman": "nanairononiji",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "日曜大工",
+    "reading": "にちようだいく",
+    "roman": "nitiyoudaiku",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "日本地図",
+    "reading": "にほんちず",
+    "roman": "nihontizu",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "入学式",
+    "reading": "にゅうがくしき",
+    "roman": "nyuugakusiki",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "にわか雨",
+    "reading": "にわかあめ",
+    "roman": "niwakaame",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "人気タレント",
+    "reading": "にんきたれんと",
+    "roman": "ninkitarento",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "人魚姫",
+    "reading": "にんぎょひめ",
+    "roman": "ningyohime",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "猫に小判",
+    "reading": "ねこにこばん",
+    "roman": "nekonikobaxn",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "熱帯夜",
+    "reading": "ねったいや",
+    "roman": "nettaiya",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "寝耳に水",
+    "reading": "ねみみにみず",
+    "roman": "nemiminimizu",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "眠り姫",
+    "reading": "ねむりひめ",
+    "roman": "nemurihime",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "年末年始",
+    "reading": "ねんまつねんし",
+    "roman": "nenmatunensi",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "ノアの箱舟",
+    "reading": "のあのはこぶね",
+    "roman": "noanohakobune",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "バウムクーヘン",
+    "reading": "ばうむくーへん",
+    "roman": "baumuku-hexn",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "バラの花束",
+    "reading": "ばらのはなたば",
+    "roman": "baranohanataba",
+    "level": 5,
+    "price": 500,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "春の嵐",
+    "reading": "はるのあらし",
+    "roman": "harunoarasi",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "パンドラの箱",
+    "reading": "ぱんどらのはこ",
+    "roman": "pandoranohako",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "ブラックホール",
+    "reading": "ぶらっくほーる",
+    "roman": "burakkuho-ru",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "プラネタリウム",
+    "reading": "ぷらねたりうむ",
+    "roman": "puranetariumu",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "万華鏡",
+    "reading": "まんげきょう",
+    "roman": "mangekyou",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "道に迷う",
+    "reading": "みちにまよう",
+    "roman": "mitinimayou",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "無限ループ",
+    "reading": "むげんるーぷ",
+    "roman": "mugenru-pu",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "無人島",
+    "reading": "むじんとう",
+    "roman": "mujintou",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "郵便局",
+    "reading": "ゆうびんきょく",
+    "roman": "yuubinkyoku",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "妖精の国",
+    "reading": "ようせいのくに",
+    "roman": "youseinokuni",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "ラーメンライス",
+    "reading": "らーめんらいす",
+    "roman": "ra-menraisu",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "理科の実験",
+    "reading": "りかのじっけん",
+    "roman": "rikanojikkexn",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "ルームサービス",
+    "reading": "るーむさーびす",
+    "roman": "ru-musa-bisu",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "ローストチキン",
+    "reading": "ろーすとちきん",
+    "roman": "ro-sutotikixn",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "ロケットパンチ",
+    "reading": "ろけっとぱんち",
+    "roman": "rokettopanti",
+    "level": 4,
+    "price": 400,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "ロブスター",
+    "reading": "ろぶすたー",
+    "roman": "robusuta-",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "ワイングラス",
+    "reading": "わいんぐらす",
+    "roman": "waingurasu",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  },
+  {
+    "name": "ワンタンメン",
+    "reading": "わんたんめん",
+    "roman": "wantanmexn",
+    "level": 3,
+    "price": 300,
+    "course": [
+      "normal"
+    ]
+  }
+]
